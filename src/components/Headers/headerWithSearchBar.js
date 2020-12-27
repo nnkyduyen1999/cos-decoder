@@ -1,164 +1,94 @@
-import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import useStyles from './useStyle';
+import { Grid } from "@material-ui/core";
+import React, { useState } from "react";
+import {
+  useStyles,
+  PinkButton,
+  CustomHeaderButton,
+  ActiveHeaderButton,
+} from "./useStyle";
 import Logo from "../../images/Logo.svg";
-import {customThemes} from "../../styles/theme";
-import { Box } from '@material-ui/core';
 
 export default function Header() {
+  const [isActived, setIsActived] = useState(false);
+  const [isActived1, setIsActived1] = useState(false);
+  const [isActived2, setIsActived2] = useState(false);
+  const [isActived3, setIsActived3] = useState(false);
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
-
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
 
   return (
-    <div className={classes.grow}>
-      <AppBar position="fixed" className={classes.root}>
-        <Toolbar>
-         <div>
-            <img src={Logo} alt="Logo" className={classes.logo}/>
-          </div>
+    <div className={classes.root}>
+      <Grid container direction="row" justify="center" alignItems="center">
+        <Grid item xs={3}>
+          <Grid container direction="row" justify="center" alignItems="center">
+            <Grid item xs={6}>
+              <div>
+                <img alt="Logo" src={Logo} className={classes.logo} />
+              </div>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={6}>
+          <Grid container direction="row" justify="center" alignItems="center">
+            <Grid item xs={2}>
+              {!isActived ? (
+                <CustomHeaderButton onClick={() => setIsActived(true)}>
+                  Trang chủ
+                </CustomHeaderButton>
+              ) : (
+                <ActiveHeaderButton onClick={() => setIsActived(false)}>
+                  Trang chủ
+                </ActiveHeaderButton>
+              )}
+            </Grid>
 
-          <Box border={1} borderRadius={5} borderColor={customThemes.LIGHT_GREY}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Box>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
+            <Grid item xs={2}>
+            {!isActived1 ? (
+                <CustomHeaderButton onClick={() => setIsActived1(true)}>
+                  So sánh
+                </CustomHeaderButton>
+              ) : (
+                <ActiveHeaderButton onClick={() => setIsActived1(false)}>
+                  So sánh
+                </ActiveHeaderButton>
+              )}
+            </Grid>
+            <Grid item xs={2}>
+            {!isActived2 ? (
+                <CustomHeaderButton onClick={() => setIsActived2(true)}>
+                  Phân tích
+                </CustomHeaderButton>
+              ) : (
+                <ActiveHeaderButton onClick={() => setIsActived2(false)}>
+                  Phân tích
+                </ActiveHeaderButton>
+              )}
+            </Grid>
+            <Grid item xs={2}>
+            {!isActived3 ? (
+                <CustomHeaderButton onClick={() => setIsActived3(true)}>
+                  Routine
+                </CustomHeaderButton>
+              ) : (
+                <ActiveHeaderButton onClick={() => setIsActived3(false)}>
+                  Routine
+                </ActiveHeaderButton>
+              )}
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={3}>
+          <Grid container direction="row" justify="center" alignItems="center">
+            <Grid item xs={5}>
+              <PinkButton variant="contained" color="primary">
+                Đăng nhập
+              </PinkButton>
+            </Grid>
+            <Grid item xs={4}>
+              <CustomHeaderButton>Đăng ký</CustomHeaderButton>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
     </div>
   );
 }
-
-
