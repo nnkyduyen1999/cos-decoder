@@ -3,9 +3,17 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import {colors} from "../../global/constants";
 import Rating from '@material-ui/lab/Rating';
+import {Button} from "@material-ui/core";
+import Chip from "@material-ui/core/Chip";
 
 const ProductDescription = () => {
     const classes = useStyles();
+
+    const renderCategoryItem = (title) => {
+        return (
+            <Chip label={title} variant="outlined" style={{marginRight: 10}}/>
+        )
+    }
 
     return (
         <>
@@ -23,12 +31,21 @@ const ProductDescription = () => {
                     width={'auto'}
                 />
             </Typography>
-            <Fragment className={classes.rating}>
-                <Typography>3.0</Typography>
-                <Rating name="read-only" value={3} readOnly />
-            </Fragment>
-
-
+            <div style={{ display: 'inline-flex' }}>
+                <div>
+                    <Typography style={{fontSize: 18}} color="textPrimary">3.0</Typography>
+                </div>
+                <div>
+                    <Rating name="read-only" value={3} readOnly className={classes.star}/>
+                </div>
+                <div>
+                    <Typography color="textSecondary">(200 bình chọn)</Typography>
+                </div>
+            </div>
+            <Typography style={{fontSize: 18}} color="textPrimary">Phân loại sản phẩm</Typography>
+            {renderCategoryItem("Kem dưỡng")}
+            {renderCategoryItem("Da thường")}
+            
         </>
     );
 };
@@ -47,8 +64,14 @@ const useStyles = makeStyles({
         marginTop: 30,
     },
     rating: {
-        display: "inline",
-
+        display: "inline-flex",
+        flexDirection: "row",
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    star: {
+        marginLeft: 5,
+        marginRight: 5,
     }
 });
 
