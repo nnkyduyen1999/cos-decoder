@@ -1,1 +1,3 @@
-export default function Search() {}
+export default function Search() {
+  return <h1>Welcome search page</h1>;
+}
