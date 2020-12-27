@@ -1,0 +1,16 @@
+.apply-button {
+  background-color: #ffc7c7;
+  color: white;
+  margin-left: 19px;
+  margin-bottom: 10px;
+  min-width: 200px;
+}
+
+.filter-applied {
+  margin-right: 7px;
+  display: inline-flex;
+  border: solid;
+  border-radius: 17px;
+  padding: 4px;
+  border-color: #e28f8f;
+}
