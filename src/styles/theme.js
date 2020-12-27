@@ -1,0 +1,12 @@
+module.exports.customThemes =  {
+    PRIMARY_PINK: "#FFF3F3",
+    SECONDARY_PINK: "#FFC7C7",
+    BUTTON_HOVER: "#E28F8F",
+    DARK_GREY: "#9F9F9F",
+    PRIMARY_GREY: "#6D738F",
+    LIGHT_GREY: "#888993",
+    PRIMARY_TEXT_COLOR: "#E28F8F",
+    FONT_BOLD: "700",
+    FONT_MID: "500",
+    FONT_LIGHT: "300"
+};
