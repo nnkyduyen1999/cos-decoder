@@ -5,6 +5,7 @@ import {colors} from "../../global/constants";
 import Rating from '@material-ui/lab/Rating';
 import {Button} from "@material-ui/core";
 import Chip from "@material-ui/core/Chip";
+import {PinkButton} from "../Headers/useStyle";
 
 const ProductDescription = () => {
     const classes = useStyles();
@@ -45,7 +46,12 @@ const ProductDescription = () => {
             <Typography style={{fontSize: 18}} color="textPrimary">Phân loại sản phẩm</Typography>
             {renderCategoryItem("Kem dưỡng")}
             {renderCategoryItem("Da thường")}
-            
+            <br/>
+            <Typography style={{marginTop: 20}}/>
+            <PinkButton variant="contained" color="primary">
+                Thêm vào routine
+            </PinkButton>
+
         </>
     );
 };

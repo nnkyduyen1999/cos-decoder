@@ -10,14 +10,17 @@ import Typography from "@material-ui/core/Typography";
 import ResourceItem from "../../components/ResourceItem/resource-item";
 import Link from "@material-ui/core/Link";
 import {colors} from "../../global/constants";
+import Header from "../../components/Headers/headerWithSearchBar";
+import Footer from "../../components/Footer/footer";
 
 const ProductDetails = () => {
     const classes = useStyles();
 
     return (
-        <Fragment>
+        <div className={classes.root}>
             <CssBaseline/>
-            <Container className={classes.root}>
+            <Header/>
+            <Container style={{width: "90%", margin: 'auto', marginTop: 40}}>
                 <Grid container spacing={10}>
                     <Grid item md={4}>
                         <CardMedia
@@ -43,16 +46,15 @@ const ProductDetails = () => {
                 <Typography className={classes.title}>Bình luận</Typography>
                 <CommentSection/>
             </Container>
-        </Fragment>
+            <Footer/>
+        </div>
     );
 };
 
 const useStyles = makeStyles({
     root: {
-        width: "100%",
-        margin: "auto",
-        marginTop: 40,
-        backgroundColor: "#FFFFFF"
+        backgroundColor: "#FFFFFF",
+        flex: 1
     },
     title: {
         fontSize: 25,
