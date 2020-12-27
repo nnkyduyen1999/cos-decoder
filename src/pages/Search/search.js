@@ -15,6 +15,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  makeStyles,
   Select,
   TextField,
 } from "@material-ui/core";
@@ -25,15 +26,47 @@ import {
   SearchOutlined,
 } from "@material-ui/icons/";
 import { useState } from "react";
-import "./search.css";
-import "../global/constants";
-import { colors } from "../global/constants";
+import "../../global/constants";
+import { colors } from "../../global/constants";
+import Header from "../../components/Headers/headerWithSearchBar";
+import ProductItem from "../../components/ProductItem/product-item";
 
 export default function Search() {
   const [typeOpen, setTypeOpen] = useState(true);
   const [filterOpen, setFilterOpen] = useState(true);
   const [sortOpen, setSortOpen] = useState(false);
   const [filter, setFilter] = useState("Phổ biến");
+
+  const UseStyles = makeStyles({
+    applyButton: {
+      backgroundColor: colors.pink3,
+      color: "white",
+      marginLeft: "19px",
+      marginBottom: "10px",
+      minWidth: "200px",
+    },
+    filterApplied: {
+      marginRight: "7px",
+      display: "inline-flex",
+      border: "solid",
+      borderRadius: "17px",
+      padding: "4px",
+      borderColor: colors.pink4,
+    },
+    boxStyle: {
+      borderRadius: 5,
+      boxShadow: "0px 10px 20px rgba(41, 41, 42, 0.07)",
+      minWidth: "280px",
+      width: "25%",
+    },
+    optionTitle: {
+      color: colors.gray5,
+      fontWeight: "bold",
+      marginRight: "auto",
+    },
+  });
+
+  const classes = UseStyles();
 
   const handleChangeFilter = (event) => {
     const name = event.target.filter;
@@ -42,10 +75,13 @@ export default function Search() {
 
   return (
     <div>
+      <Header />
+      <br />
+      <br />
       <Container fixed>
         <Grid container spacing={8}>
           <Grid item xs={3}>
-            <Box boxShadow={3} borderRadius={8} minWidth={280}>
+            <Box className={classes.boxStyle}>
               <List>
                 <ListItem
                   button
@@ -53,7 +89,7 @@ export default function Search() {
                     setTypeOpen(!typeOpen);
                   }}
                 >
-                  <ListItemText primary="PHÂN LOẠI" />
+                  <span className={classes.optionTitle}>PHÂN LOẠI</span>
                   {typeOpen ? <ExpandMore /> : <ExpandLess />}
                 </ListItem>
                 <Collapse in={typeOpen} timeout="auto" unmountOnExit>
@@ -73,8 +109,8 @@ export default function Search() {
                 </Collapse>
               </List>
             </Box>
-            <h3>LỌC:</h3>
-            <Box boxShadow={3} borderRadius={8} minWidth={280}>
+            <h3 style={{ color: colors.gray5 }}>LỌC:</h3>
+            <Box className={classes.boxStyle}>
               <List>
                 <ListItem
                   button
@@ -82,7 +118,7 @@ export default function Search() {
                     setFilterOpen(!filterOpen);
                   }}
                 >
-                  <ListItemText primary="THÀNH PHẦN" />
+                  <span className={classes.optionTitle}>THÀNH PHẦN</span>
                   {filterOpen ? <ExpandMore /> : <ExpandLess />}
                 </ListItem>
                 <Collapse in={filterOpen} timeout="auto" unmountOnExit>
@@ -155,7 +191,7 @@ export default function Search() {
                       label={<ListItemText secondary="Vitamin A" />}
                     />
                     <br />
-                    <Button className="apply-button">ÁP DỤNG</Button>
+                    <Button className={classes.applyButton}>ÁP DỤNG</Button>
                   </List>
                 </Collapse>
               </List>
@@ -184,19 +220,19 @@ export default function Search() {
             <div
               style={{ display: "inline-flex", justifyContent: "space-around" }}
             >
-              <div className="filter-applied">
+              <div className={classes.filterApplied}>
                 <span style={{ fontSize: "17px", marginLeft: "5px" }}>
                   whamisa
                 </span>
                 <CloseOutlined />
               </div>
-              <div className="filter-applied">
+              <div className={classes.filterApplied}>
                 <span style={{ fontSize: "17px", marginLeft: "5px" }}>
                   Dùng cho mặt
                 </span>
                 <CloseOutlined />
               </div>
-              <div className="filter-applied">
+              <div className={classes.filterApplied}>
                 <span style={{ fontSize: "17px", marginLeft: "5px" }}>
                   Da khô
                 </span>
@@ -222,6 +258,94 @@ export default function Search() {
                 <option value={2}>Mới nhất</option>
               </Select>
             </FormControl>
+            <br /> <br />
+            <Grid container spacing={3}>
+              <Grid item xs>
+                <ProductItem
+                  item={{
+                    image: "/images/Organic Flowers Cleansing Water.jpg",
+                    name: "Organic Flowers Cleansing Water",
+                    brand: "Whamisa",
+                  }}
+                />
+              </Grid>
+              <Grid item xs>
+                <ProductItem
+                  item={{
+                    image: "/images/searchResult2.png",
+                    name: "Jeju Cherry Blossom Tone-up Cream",
+                    brand: "Innisfree",
+                  }}
+                />
+              </Grid>
+              <Grid item xs>
+                <ProductItem
+                  item={{
+                    image: "/images/searchResult3.png",
+                    name: "Jeju Cherry Blossom Skin",
+                    brand: "Innisfree",
+                  }}
+                />
+              </Grid>
+            </Grid>
+            <Grid container spacing={3}>
+              <Grid item xs>
+                <ProductItem
+                  item={{
+                    image: "/images/searchResult4.png",
+                    name: "Oat So Simple Water Cream",
+                    brand: "Krave Beauty",
+                  }}
+                />
+              </Grid>
+              <Grid item xs>
+                <ProductItem
+                  item={{
+                    image: "/images/searchResult5.png",
+                    name: "Energy Boosting Gel Moisturizer",
+                    brand: "Origins",
+                  }}
+                />
+              </Grid>
+              <Grid item xs>
+                <ProductItem
+                  item={{
+                    image: "/images/searchResult6.png",
+                    name: "Creamy moisturizing humectante cremoso",
+                    brand: "Aveeno",
+                  }}
+                />
+              </Grid>
+            </Grid>
+            <Grid container spacing={3}>
+              <Grid item xs>
+                <ProductItem
+                  item={{
+                    image: "/images/searchResult7.png",
+                    name: "avena ISDIN Moisturizing Lotion",
+                    brand: "Avena",
+                  }}
+                />
+              </Grid>
+              <Grid item xs>
+                <ProductItem
+                  item={{
+                    image: "/images/searchResult8.png",
+                    name: "Rose water gel cream",
+                    brand: "Mamonde",
+                  }}
+                />
+              </Grid>
+              <Grid item xs>
+                <ProductItem
+                  item={{
+                    image: "/images/searchResult9.png",
+                    name: "Lip Sleeping Mask Sleeping Care",
+                    brand: "Laneige",
+                  }}
+                />
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </Container>
