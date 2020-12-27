@@ -6,6 +6,10 @@ import Grid from "@material-ui/core/Grid";
 import CardMedia from "@material-ui/core/CardMedia";
 import CommentSection from "../../components/CommentSection/comment-section";
 import ProductDescription from "../../components/ProductDescription/product-description";
+import Typography from "@material-ui/core/Typography";
+import ResourceItem from "../../components/ResourceItem/resource-item";
+import Link from "@material-ui/core/Link";
+import {colors} from "../../global/constants";
 
 const ProductDetails = () => {
     const classes = useStyles();
@@ -28,6 +32,15 @@ const ProductDetails = () => {
                         <ProductDescription/>
                     </Grid>
                 </Grid>
+                <Typography className={classes.title} style={{marginBottom: 10}}>Nguồn thông tin</Typography>
+                    <ResourceItem content="https://www.innisfree.vn/product/detail?prdno=37&optno=38&schdplctgno=12"/>
+                <ResourceItem content='Grether-Beck, Susanne, et al. "Urea uptake enhances barrier function and antimicrobial defense in humans by regulating epidermal gene expression." Journal of Investigative Dermatology 132.6 (2012): 1561-1572.'/>
+                <Link href="#" color="inherit" style={{ textDecorationColor: colors.pink4 }}>
+                    <Typography className={classes.link}>
+                        !? Thông tin trên chưa chính xác ? Bạn có muốn đóng góp thêm ?
+                    </Typography>
+                </Link>
+                <Typography className={classes.title}>Bình luận</Typography>
                 <CommentSection/>
             </Container>
         </Fragment>
@@ -41,6 +54,17 @@ const useStyles = makeStyles({
         marginTop: 40,
         backgroundColor: "#FFFFFF"
     },
+    title: {
+        fontSize: 25,
+        color: "#9F5A5A",
+        marginTop: 30,
+        // marginBottom: 5
+    },
+    link: {
+        color: colors.pink4,
+        marginTop: 10,
+
+    }
 });
 
 export default ProductDetails;
