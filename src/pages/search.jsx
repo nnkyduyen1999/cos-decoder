@@ -26,6 +26,8 @@ import {
 } from "@material-ui/icons/";
 import { useState } from "react";
 import "./search.css";
+import "../global/constants";
+import { colors } from "../global/constants";
 
 export default function Search() {
   const [typeOpen, setTypeOpen] = useState(true);
@@ -89,7 +91,7 @@ export default function Search() {
                     style={{ marginLeft: "20px" }}
                     disablePadding
                   >
-                    <i style={{ fontSize: "14px", color: "#888993" }}>
+                    <i style={{ fontSize: "14px", color: colors.gray4 }}>
                       Hiệu quả đáng chú ý trên thành phần:
                     </i>
                     <FormControlLabel
@@ -119,7 +121,7 @@ export default function Search() {
                       label={<ListItemText secondary="Chống lão hóa" />}
                     />
                     <br />
-                    <i style={{ fontSize: "14px", color: "#888993" }}>
+                    <i style={{ fontSize: "14px", color: colors.gray4 }}>
                       Thành phần phổ biến:
                     </i>
                     <br />
@@ -175,7 +177,7 @@ export default function Search() {
                 }}
               />
             </form>
-            <h1 style={{ color: "#E28F8F" }}>
+            <h1 style={{ color: colors.pink4 }}>
               Kết quả tìm kiếm với "Dưỡng ẩm"
             </h1>
             <b style={{ fontSize: "20px" }}>Áp dụng cho: </b>
