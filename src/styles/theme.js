@@ -6,7 +6,7 @@ module.exports.customThemes =  {
     PRIMARY_GREY: "#6D738F",
     LIGHT_GREY: "#888993",
     PRIMARY_TEXT_COLOR: "#E28F8F",
-    FONT_BOLD: "700",
+    FONT_BOLD: "550",
     FONT_MID: "500",
     FONT_LIGHT: "300"
 };

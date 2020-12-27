@@ -26,6 +26,7 @@ const PinkButton = withStyles((theme) => ({
       backgroundColor: "#E28F8F",
     },
     textTransform: "capitalize",
+    fontWeight: customThemes.FONT_BOLD
   },
 }))(Button);
 
@@ -41,7 +42,24 @@ const CustomHeaderButton = withStyles((theme) => ({
       color: customThemes.BUTTON_HOVER,
     },
     textTransform: "capitalize",
+    fontWeight: customThemes.FONT_BOLD
   },
 }))(Button);
 
-export { useStyles, PinkButton, CustomHeaderButton };
+const ActiveHeaderButton = withStyles((theme) => ({
+    root: {
+      color: customThemes.BUTTON_HOVER,
+      backgroundColor: customThemes.PRIMARY_PINK,
+      "&:hover": {
+        color: customThemes.BUTTON_HOVER,
+        backgroundColor: "none",
+      },
+      "&:active": {
+        color: customThemes.BUTTON_HOVER,
+      },
+      textTransform: "capitalize",
+      fontWeight: customThemes.FONT_BOLD
+    },
+  }))(Button);
+  
+export { useStyles, PinkButton, CustomHeaderButton, ActiveHeaderButton };
