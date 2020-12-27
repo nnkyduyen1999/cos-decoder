@@ -1,9 +1,15 @@
 import React from 'react'
 import Header from "../../components/Headers/header";
 
+import PopUp from "../../components/PopUp/popUp";
+
 const Home = (props) => {
     return (
-        <Header/>
+        <div>
+<Header/>
+        <PopUp/>
+        </div>
+        
     )
 }
 
