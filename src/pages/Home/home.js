@@ -1,4 +1,4 @@
-import { Grid, fade, Typography, colors, Box } from "@material-ui/core";
+import { Grid, fade, Typography, colors, Box, Button } from "@material-ui/core";
 import React from "react";
 import ProductItem from "../../components/ProductItem/product-item";
 import InputBase from "@material-ui/core/InputBase";
@@ -7,9 +7,25 @@ import { useStyles } from "./useStyles";
 import IngredientItem from "../../components/IngredientItem/ingredient-item";
 import RoutineItem from "../../components/RoutineItem/routine-item";
 import CompareItem from "../../components/CompareItem/compare-item";
+import Header from '../../components/Headers/header'
+import { PinDropTwoTone } from "@material-ui/icons";
+import { SimpleDialog } from "../../components/PopUp/popUp";
 
 const Home = (props) => {
   const classes = useStyles();
+  const emails = ['Routine mùa hè', 'Routine mùa đông'];
+  const [open, setOpen] = React.useState(false);
+  const [selectedValue, setSelectedValue] = React.useState(emails[1]);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (value) => {
+    setOpen(false);
+    setSelectedValue(value);
+  };
+
   const topProducts = [
     {
       id: "1",
@@ -126,12 +142,48 @@ const Home = (props) => {
 
   return (
     <div className={classes.root}>
-      <Grid container>
+      <Header />
+
+      <Box display="flex" justifyContent='center' mx={8} px={5} mb={7}>
+        <Box
+          width="50%"
+          m={3}
+          pb={5}
+          pl={5}
+          // justifyContent='center'
+          // alignSelf="flex-end"
+          display='flex'
+          flexDirection='column'
+          justifyContent='flex-end'
+          // className={classes.introContainer}
+        >
+          <Typography
+            // classeName={classes.title}
+            variant="h4"
+            // component="h2"
+            gutterBottom
+          >
+            Chào mừng bạn đến với CosDecoder
+          </Typography>
+          <Typography variant="h5" gutterBottom>
+            Tham gia cộng đồng của chúng tôi để hiểu rõ về sản phẩm mà bạn đang
+            sử dụng.
+          </Typography>
+          <Typography variant="h5" gutterBottom>
+            Cùng xây dựng cộng đồng bằng kiến thức của bạn và tìm hiểu thêm
+            nhiều sản phẩm nữa.
+          </Typography>
+        </Box>
+        <Box width="50%" display='flex' alignItems='center' m={3} p={1} pl={5} >
+          <img src="/Free Vanity Vector 1.svg" alt="background-image" />
+        </Box>
+      </Box>
+
+      {/* <Grid container>
         <Grid item xs={6} className={classes.introContainer}>
           <Typography
             classeName={classes.title}
             variant="h3"
-            // component="h2"
             gutterBottom
           >
             Chào mừng bạn đến với CosDecoder
@@ -146,11 +198,11 @@ const Home = (props) => {
           </Typography>
         </Grid>
         <Grid item xs={6}>
-          <img src="images/Free Vanity Vector 1.svg" />
+          <img src="/images/Free Vanity Vector 1.svg" alt="background-image" />
         </Grid>
-      </Grid>
+      </Grid> */}
 
-      <Box display="flex" justifyContent="center" m={5}>
+      <Box display="flex" justifyContent="center" mx={8} px={5} my={7}>
         <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon />
@@ -162,32 +214,33 @@ const Home = (props) => {
               input: classes.inputInput,
             }}
             inputProps={{ "aria-label": "search" }}
+            onKeyDown={() => props.history.push('/search')}
           />
         </div>
       </Box>
 
-      <Typography className={classes.sectionTitle} variant="h3" gutterBottom>
+      <Typography className={classes.sectionTitle} variant="h4" gutterBottom >
         Sản phẩm
       </Typography>
-      <Box display="flex" justifyContent="center" m={1} p={10}>
+      <Box display="flex" justifyContent="center" mx={5} mt={2} mb={5} px={5}>
         <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[0]} />
+          <ProductItem item={topProducts[0]} onClick={handleClickOpen}/>
         </Box>
         <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[1]} />
+          <ProductItem item={topProducts[1]} onClick={handleClickOpen}/>
         </Box>
         <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[2]} />
+          <ProductItem item={topProducts[2]} onClick={handleClickOpen}/>
         </Box>
         <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[3]} />
+          <ProductItem item={topProducts[3]} onClick={handleClickOpen}/>
         </Box>
       </Box>
 
-      <Typography className={classes.sectionTitle} variant="h3" gutterBottom>
+      <Typography className={classes.sectionTitle} variant="h4" gutterBottom>
         Thành phần
       </Typography>
-      <Box display="flex" justifyContent="center" m={1} p={10}>
+      <Box display="flex" justifyContent="center"  mx={5} mt={2} mb={5} px={5}>
         <Box width="25%" m={3} p={1}>
           <IngredientItem item={topIngredients[0]} />
         </Box>
@@ -202,11 +255,11 @@ const Home = (props) => {
         </Box>
       </Box>
 
-      <Typography className={classes.sectionTitle} variant="h3" gutterBottom>
+      <Typography className={classes.sectionTitle} variant="h4" gutterBottom>
         So sánh sản phẩm
       </Typography>
 
-      <Box display="flex" justifyContent="center" m={1} p={10}>
+      <Box display="flex" justifyContent="center"  mx={5} mt={2} mb={5} px={5}>
         <Box width="50%" m={3} p={1}>
           <CompareItem item={topCompareProducts[0]} />
         </Box>
@@ -215,11 +268,11 @@ const Home = (props) => {
         </Box>
       </Box>
 
-      <Typography className={classes.sectionTitle} variant="h3" gutterBottom>
+      <Typography className={classes.sectionTitle} variant="h4" gutterBottom>
         Routines
       </Typography>
 
-      <Box display="flex" justifyContent="center" m={1} p={10}>
+      <Box display="flex" justifyContent="center"  mx={5} mt={2} mb={5} px={5}>
         <Box width="25%" m={3} p={1}>
           <RoutineItem item={topRoutines[0]} />
         </Box>
@@ -233,6 +286,10 @@ const Home = (props) => {
           <RoutineItem item={topRoutines[3]} />
         </Box>
       </Box>
+      {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Open simple dialog
+      </Button> */}
+      <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />
     </div>
   );
 };

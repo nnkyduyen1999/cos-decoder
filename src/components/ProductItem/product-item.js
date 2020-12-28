@@ -8,8 +8,9 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { colors } from "../../global/constants";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
-import { IconButton } from "@material-ui/core";
-
+import { IconButton, Link } from "@material-ui/core";
+// import { Redirect } from "react-router-dom";
+// import { Link as RouterLink } from
 const useStyles = makeStyles({
   root: {
     // width: "20%",
@@ -52,11 +53,13 @@ const ProductItem = (props) => {
   return (
     <Card className={classes.root}>
       <CardActionArea style={{ minHeight: "270px" }}>
+        <Link href="/product/1" style={{textDecoration: 'none'}}>
         <CardMedia
           component="img"
           className={classes.media}
           image={props.item.image}
           title={props.item.name}
+          href="/product/1"
         />
         <CardContent>
           <Typography
@@ -75,10 +78,15 @@ const ProductItem = (props) => {
             {props.item.brand}
           </Typography>
         </CardContent>
-        <IconButton className={classes.addButton}>
-          <AddCircleIcon fontSize="large" className={classes.addIcon} />
-        </IconButton>
+
+        </Link>
+                <CardActions className={classes.addButton}>
+          <IconButton onClick={props.onClick}>
+            <AddCircleIcon fontSize="large" className={classes.addIcon} />
+          </IconButton>
+        </CardActions>
       </CardActionArea>
+      
       {/* <CardActions> */}
       {/* </CardActions> */}
     </Card>

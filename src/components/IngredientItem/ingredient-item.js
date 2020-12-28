@@ -15,8 +15,12 @@ const useStyles = makeStyles({
   },
   media: {
     maxWidth: "100%",
-    paddingTop: "56.25%",
+    // paddingTop: "56.25%",
     // backgroundColor: colors.gray1,
+    maxHeight: "150px",
+    objectFit: "contain",
+    margin: "auto",
+    backgroundColor: "white",
   },
   title: {
     color: colors.pink4,
@@ -43,6 +47,7 @@ const IngredientItem = (props) => {
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
+        component="img"
           className={classes.media}
           image={props.item.image}
           title={props.item.name}

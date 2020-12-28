@@ -68,7 +68,7 @@ SimpleDialog.propTypes = {
   selectedValue: PropTypes.string.isRequired,
 };
 
-export default function SimpleDialogDemo() {
+function SimpleDialogDemo() {
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(emails[1]);
 
@@ -92,3 +92,5 @@ export default function SimpleDialogDemo() {
     </div>
   );
 }
+
+export {SimpleDialog, SimpleDialogDemo}

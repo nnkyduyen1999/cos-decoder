@@ -15,7 +15,12 @@ const useStyles = makeStyles({
   },
   media: {
     maxWidth: "100%",
-    paddingTop: "56.25%",
+    // paddingTop: "56.25%",
+    // backgroundColor: colors.gray1,
+    maxHeight: "150px",
+    objectFit: "contain",
+    margin: "auto",
+    backgroundColor: "white",
   },
   title: {
     color: colors.pink4,
@@ -35,10 +40,10 @@ const useStyles = makeStyles({
   },
   divider: {
     backgroundColor: colors.pink4,
-    width: '2px',
-    marginTop: '25px',
-    marginBottom: '25px'
-  }
+    width: "2px",
+    marginTop: "25px",
+    marginBottom: "25px",
+  },
 });
 
 const CompareItem = (props) => {
@@ -50,6 +55,7 @@ const CompareItem = (props) => {
         <Box display="flex" justifyContent="center" alignItems="center">
           <Box width="50%" m={3} p={1}>
             <CardMedia
+              component="img"
               className={classes.media}
               image={props.item.first.image}
               title={props.item.first.name}
@@ -72,12 +78,17 @@ const CompareItem = (props) => {
               </Typography>
             </CardContent>
           </Box>
-          <Divider className={classes.divider} orientation="vertical" flexItem />
+          <Divider
+            className={classes.divider}
+            orientation="vertical"
+            flexItem
+          />
           <Box width="50%" m={3} p={1}>
             <CardMedia
               className={classes.media}
               image={props.item.second.image}
               title={props.item.second.name}
+              component="img"
             />
             <CardContent>
               <Typography

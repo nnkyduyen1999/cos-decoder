@@ -8,7 +8,7 @@ import {
 } from "./useStyle";
 import Logo from "../../images/Logo.svg";
 
-export default function Header() {
+export default function Header(props) {
   const [isActived, setIsActived] = useState(false);
   const [isActived1, setIsActived1] = useState(false);
   const [isActived2, setIsActived2] = useState(false);
