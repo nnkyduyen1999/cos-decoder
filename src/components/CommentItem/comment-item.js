@@ -50,13 +50,13 @@ const useStyles = makeStyles((theme) => ({
 
     username: {
         fontWeight: 'bold',
-        fontSize: 17
+        // fontSize: 17
     },
     time: {
         fontSize: 12
     },
     content: {
-        fontSize: 15
+        // fontSize: 15
     },
 }));
 
