@@ -13,17 +13,24 @@ import { IconButton } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     // width: "20%",
+    // minWidth: "250px",
+    // minHeight: "270px",
     borderRadius: 5,
     boxShadow: "0px 10px 20px rgba(41, 41, 42, 0.07)",
   },
   media: {
     maxWidth: "100%",
-    paddingTop: "56.25%",
-    backgroundColor: colors.gray1,
+    // paddingTop: "56.25%",
+    // backgroundColor: colors.gray1,
+    maxHeight: "150px",
+    objectFit: "contain",
+    margin: "auto",
+    backgroundColor: "white",
   },
   title: {
     color: colors.pink4,
     textAlign: "center",
+    fontSize: "medium",
   },
   brandText: {
     color: colors.gray4,
@@ -44,8 +51,9 @@ const ProductItem = (props) => {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea style={{ minHeight: "270px" }}>
         <CardMedia
+          component="img"
           className={classes.media}
           image={props.item.image}
           title={props.item.name}
