@@ -284,7 +284,8 @@ export default function Search() {
               <Grid item xs>
                 <ProductItem
                   item={{
-                    image: "/images/Organic Flowers Cleansing Water.jpg",
+                    image:
+                      "/images/products/Organic Flowers Cleansing Water.jpg",
                     name: "Organic Flowers Cleansing Water",
                     brand: "Whamisa",
                   }}
