@@ -12,6 +12,8 @@ import Link from "@material-ui/core/Link";
 import {colors} from "../../global/constants";
 import Header from "../../components/Headers/headerWithSearchBar";
 import Footer from "../../components/Footer/footer";
+import EffectTable from "../../components/EffectTable/effect-table";
+import IngredientTable from "../../components/IngredientTable/ingredient-table";
 
 const ProductDetails = () => {
     const classes = useStyles();
@@ -35,6 +37,10 @@ const ProductDetails = () => {
                         <ProductDescription/>
                     </Grid>
                 </Grid>
+                <Typography className={classes.title} style={{marginBottom: 10}}>Tổng quan sản phẩm</Typography>
+                <EffectTable/>
+                <Typography className={classes.title} style={{marginBottom: 10}}></Typography>
+                <IngredientTable/>
                 <Typography className={classes.title} style={{marginBottom: 10}}>Nguồn thông tin</Typography>
                     <ResourceItem content="https://www.innisfree.vn/product/detail?prdno=37&optno=38&schdplctgno=12"/>
                 <ResourceItem content='Grether-Beck, Susanne, et al. "Urea uptake enhances barrier function and antimicrobial defense in humans by regulating epidermal gene expression." Journal of Investigative Dermatology 132.6 (2012): 1561-1572.'/>
