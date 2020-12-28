@@ -1,10 +1,8 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import {colors} from "../../global/constants";
 import Rating from '@material-ui/lab/Rating';
-import {Button} from "@material-ui/core";
-import Chip from "@material-ui/core/Chip";
 import {PinkButton} from "../Headers/useStyle";
 
 const ProductDescription = () => {
@@ -12,7 +10,11 @@ const ProductDescription = () => {
 
     const renderCategoryItem = (title) => {
         return (
-            <Chip label={title} variant="outlined" style={{marginRight: 10}}/>
+            <div className={classes.filterApplied}>
+                <span style={{ fontSize: 14, marginLeft: "5px" , marginRight: "5px", color: colors.gray5 }}>
+                    {title}
+                </span>
+            </div>
         )
     }
 
@@ -34,16 +36,16 @@ const ProductDescription = () => {
             </Typography>
             <div style={{ display: 'inline-flex' }}>
                 <div>
-                    <Typography style={{fontSize: 18}} color="textPrimary">3.0</Typography>
+                    <Typography style={{fontSize: 18, marginTop: 5, marginBottom: 5}} color="textPrimary">3.0</Typography>
                 </div>
                 <div>
-                    <Rating name="read-only" value={3} readOnly className={classes.star}/>
+                    <Rating name="read-only" value={3} readOnly className={classes.star} style={{ marginTop: 5, marginBottom: 5}}/>
                 </div>
                 <div>
-                    <Typography color="textSecondary">(200 bình chọn)</Typography>
+                    <Typography color="textSecondary" style={{ marginTop: 5, marginBottom: 5}}>(200 bình chọn)</Typography>
                 </div>
             </div>
-            <Typography style={{fontSize: 18}} color="textPrimary">Phân loại sản phẩm</Typography>
+            <Typography style={{fontSize: 18, marginTop: 5, marginBottom: 5}} color="textPrimary">Phân loại sản phẩm</Typography>
             {renderCategoryItem("Kem dưỡng")}
             {renderCategoryItem("Da thường")}
             <br/>
@@ -59,7 +61,8 @@ const ProductDescription = () => {
 const useStyles = makeStyles({
     subTitle: {
         color: colors.pink4,
-        fontSize: 18
+        fontSize: 18,
+
     },
     title: {
         color: colors.redPink,
@@ -78,7 +81,17 @@ const useStyles = makeStyles({
     star: {
         marginLeft: 5,
         marginRight: 5,
-    }
+    },
+    filterApplied: {
+        marginRight: "7px",
+        display: "inline-flex",
+        border: "solid",
+        borderRadius: "17px",
+        borderWidth: 1,
+        padding: "4px",
+        borderColor: colors.pink4,
+        fontSize: 15
+    },
 });
 
 
