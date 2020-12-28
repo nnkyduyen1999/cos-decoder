@@ -2,37 +2,27 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { colors } from "../../global/constants";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
-import { IconButton } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
     // width: "20%",
-    // minWidth: "250px",
-    // minHeight: "270px",
     borderRadius: 5,
     boxShadow: "0px 10px 20px rgba(41, 41, 42, 0.07)",
   },
   media: {
     maxWidth: "100%",
-    // paddingTop: "56.25%",
+    paddingTop: "56.25%",
     // backgroundColor: colors.gray1,
-    maxHeight: "150px",
-    objectFit: "contain",
-    margin: "auto",
-    backgroundColor: "white",
   },
   title: {
     color: colors.pink4,
     textAlign: "center",
-    fontSize: "medium",
   },
-  brandText: {
+  usageText: {
     color: colors.gray4,
     textAlign: "center",
   },
@@ -46,14 +36,13 @@ const useStyles = makeStyles({
   },
 });
 
-const ProductItem = (props) => {
+const IngredientItem = (props) => {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
-      <CardActionArea style={{ minHeight: "270px" }}>
+      <CardActionArea>
         <CardMedia
-          component="img"
           className={classes.media}
           image={props.item.image}
           title={props.item.name}
@@ -69,15 +58,12 @@ const ProductItem = (props) => {
           </Typography>
           <Typography
             variant="body2"
-            className={classes.brandText}
+            className={classes.usageText}
             component="p"
           >
-            {props.item.brand}
+            {props.item.usage}
           </Typography>
         </CardContent>
-        <IconButton className={classes.addButton}>
-          <AddCircleIcon fontSize="large" className={classes.addIcon} />
-        </IconButton>
       </CardActionArea>
       {/* <CardActions> */}
       {/* </CardActions> */}
@@ -85,4 +71,4 @@ const ProductItem = (props) => {
   );
 };
 
-export default ProductItem;
+export default IngredientItem;
