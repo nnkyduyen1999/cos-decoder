@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     flex: 1,
-    height: "100vh",
+    minHeight: "100vh",
     backgroundColor: customThemes.PRIMARY_PINK,
   },
   logo: {
@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     margin: theme.spacing(2,2)
+  },
+  text: {
+    fontSize: 24,
+    color: customThemes.DARK_GREY,
   }
 }));
 
