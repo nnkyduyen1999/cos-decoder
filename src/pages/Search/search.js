@@ -30,12 +30,17 @@ import "../../global/constants";
 import { colors } from "../../global/constants";
 import Header from "../../components/Headers/headerWithSearchBar";
 import ProductItem from "../../components/ProductItem/product-item";
+import { usePagination } from "@material-ui/lab/Pagination";
 
 export default function Search() {
   const [typeOpen, setTypeOpen] = useState(true);
   const [filterOpen, setFilterOpen] = useState(true);
   const [sortOpen, setSortOpen] = useState(false);
   const [filter, setFilter] = useState("Phổ biến");
+
+  const { items } = usePagination({
+    count: 3,
+  });
 
   const UseStyles = makeStyles({
     applyButton: {
@@ -63,6 +68,22 @@ export default function Search() {
       color: colors.gray5,
       fontWeight: "bold",
       marginRight: "auto",
+    },
+    ul: {
+      listStyle: "none",
+      padding: 0,
+      marginTop: 12,
+      marginRight: 35,
+      display: "flex",
+      justifyContent: "flex-end",
+    },
+    pagingButton: {
+      border: "solid",
+      borderWidth: "1px",
+      padding: 10,
+      borderColor: colors.gray2,
+      backgroundColor: "white",
+      color: colors.pink4,
     },
   });
 
@@ -253,7 +274,7 @@ export default function Search() {
                   name: "filter",
                 }}
               >
-                <option value={0}>Phổ biến</option> />
+                <option value={0}>Phổ biến</option>
                 <option value={1}>Cũ nhất</option>
                 <option value={2}>Mới nhất</option>
               </Select>
@@ -346,6 +367,43 @@ export default function Search() {
                 />
               </Grid>
             </Grid>
+            <nav>
+              <ul className={classes.ul}>
+                {items.map(({ page, type, selected, ...item }, index) => {
+                  let children = null;
+
+                  if (type === "start-ellipsis" || type === "end-ellipsis") {
+                    children = "…";
+                  } else if (type === "page") {
+                    children = (
+                      <button
+                        className={classes.pagingButton}
+                        type="button"
+                        style={{
+                          fontWeight: selected ? "bold" : "normal",
+                          backgroundColor: selected ? colors.pink3 : "white",
+                        }}
+                        {...item}
+                      >
+                        {page}
+                      </button>
+                    );
+                  } else {
+                    children = (
+                      <button
+                        className={classes.pagingButton}
+                        type="button"
+                        {...item}
+                      >
+                        {type}
+                      </button>
+                    );
+                  }
+
+                  return <li key={index}>{children}</li>;
+                })}
+              </ul>
+            </nav>
           </Grid>
         </Grid>
       </Container>
