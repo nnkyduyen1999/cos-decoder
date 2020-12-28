@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: customThemes.PRIMARY_PINK,
   },
   logo: {
-    width: 100,
-    height: 50,
+    width: '90%',
+    height: '100%',
   },
   paper: {
     padding: theme.spacing(2),
@@ -36,10 +36,11 @@ const CustomHeaderButton = withStyles((theme) => ({
     backgroundColor: customThemes.PRIMARY_PINK,
     "&:hover": {
       color: customThemes.BUTTON_HOVER,
-      backgroundColor: "none",
+      backgroundColor: customThemes.PRIMARY_PINK,
     },
     "&:active": {
       color: customThemes.BUTTON_HOVER,
+      backgroundColor: customThemes.PRIMARY_PINK,
     },
     textTransform: "capitalize",
     fontWeight: customThemes.FONT_BOLD
