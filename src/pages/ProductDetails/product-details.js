@@ -24,7 +24,7 @@ const ProductDetails = () => {
         <div className={classes.root}>
             <CssBaseline/>
             <Header/>
-            <Container style={{width: "80%", margin: 'auto', marginTop: 40}}>
+            <Container style={{width: "80%", margin: 'auto', marginTop: 40, paddingBottom: 20}}>
                 <Grid container spacing={10}>
                     <Grid item md={4}>
                         <CardMedia

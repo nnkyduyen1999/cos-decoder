@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: customThemes.PRIMARY_PINK,
     paddingTop: 30,
     paddingBottom: 20,
+    marginTop: 50
   },
   logo: {
     width: "15%",
