@@ -10,6 +10,7 @@ import CompareItem from "../../components/CompareItem/compare-item";
 import Header from '../../components/Headers/header'
 import { PinDropTwoTone } from "@material-ui/icons";
 import { SimpleDialog } from "../../components/PopUp/popUp";
+import Footer from "../../components/Footer/footer";
 
 const Home = (props) => {
   const classes = useStyles();
@@ -290,6 +291,7 @@ const Home = (props) => {
         Open simple dialog
       </Button> */}
       <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />
+      <Footer/>
     </div>
   );
 };
