@@ -76,7 +76,7 @@ const Home = (props) => {
     },
     {
       id: "4",
-      image: "/images/ingredients/Panthenol.png",
+      image: "/images/ingredients/panthenol.svg",
       name: "Panthenol",
       usage: "Phục hồi",
     },
