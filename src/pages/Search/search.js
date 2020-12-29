@@ -29,6 +29,7 @@ import { useState } from "react";
 import "../../global/constants";
 import { colors } from "../../global/constants";
 import Header from "../../components/Headers/headerWithSearchBar";
+import Footer from "../../components/Footer/footer";
 import ProductItem from "../../components/ProductItem/product-item";
 import { usePagination } from "@material-ui/lab/Pagination";
 
@@ -48,7 +49,7 @@ export default function Search() {
       color: "white",
       marginLeft: "19px",
       marginBottom: "10px",
-      minWidth: "200px",
+      width: "80%"
     },
     filterApplied: {
       marginRight: "7px",
@@ -61,8 +62,7 @@ export default function Search() {
     boxStyle: {
       borderRadius: 5,
       boxShadow: "0px 10px 20px rgba(41, 41, 42, 0.07)",
-      minWidth: "280px",
-      width: "25%",
+      width: "100%",
     },
     optionTitle: {
       color: colors.gray5,
@@ -99,8 +99,8 @@ export default function Search() {
       <Header />
       <br />
       <br />
-      <Container fixed>
-        <Grid container spacing={8}>
+      <Container fixed style={{width: '90%'}}>
+        <Grid container direrection="row"  spacing={8}>
           <Grid item xs={3}>
             <Box className={classes.boxStyle}>
               <List>
@@ -148,9 +148,11 @@ export default function Search() {
                     style={{ marginLeft: "20px" }}
                     disablePadding
                   >
+                    <Box>
                     <i style={{ fontSize: "14px", color: colors.gray4 }}>
                       Hiệu quả đáng chú ý trên thành phần:
                     </i>
+                      </Box>
                     <FormControlLabel
                       control={<Checkbox />}
                       label={<ListItemText secondary="Chống tia UV" />}
@@ -178,9 +180,12 @@ export default function Search() {
                       label={<ListItemText secondary="Chống lão hóa" />}
                     />
                     <br />
+                    <Box>
                     <i style={{ fontSize: "14px", color: colors.gray4 }}>
                       Thành phần phổ biến:
                     </i>
+                    </Box>
+                    
                     <br />
                     <FormControlLabel
                       control={<Checkbox />}
@@ -408,6 +413,7 @@ export default function Search() {
           </Grid>
         </Grid>
       </Container>
+      <Footer/>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Grid, Link } from "@material-ui/core";
 import React, { useState } from "react";
 import {
   useStyles,
@@ -8,12 +8,37 @@ import {
 } from "./useStyle";
 import Logo from "../../images/Logo.svg";
 
-export default function Header() {
+export default function Header(props) {
   const [isActived, setIsActived] = useState(false);
   const [isActived1, setIsActived1] = useState(false);
   const [isActived2, setIsActived2] = useState(false);
   const [isActived3, setIsActived3] = useState(false);
   const classes = useStyles();
+
+  const setActiveForHome = () => {
+    setIsActived(true);
+    setIsActived1(false);
+    setIsActived2(false);
+    setIsActived3(false);
+  }
+  const setActiveForCompare = () => {
+    setIsActived(false);
+    setIsActived1(true);
+    setIsActived2(false);
+    setIsActived3(false);
+  }
+  const setActiveForDetail = () => {
+    setIsActived(false);
+    setIsActived1(false);
+    setIsActived2(true);
+    setIsActived3(false);
+  }
+  const setActiveForRoutine = () => {
+    setIsActived(false);
+    setIsActived1(false);
+    setIsActived2(false);
+    setIsActived3(true);
+  }
 
   return (
     <div className={classes.root}>
@@ -21,9 +46,9 @@ export default function Header() {
         <Grid item xs={3}>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={6}>
-              <div>
+              <Link href="/"> 
                 <img alt="Logo" src={Logo} className={classes.logo} />
-              </div>
+              </Link>
             </Grid>
           </Grid>
         </Grid>
@@ -31,11 +56,11 @@ export default function Header() {
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={2}>
               {!isActived ? (
-                <CustomHeaderButton onClick={() => setIsActived(true)}>
+                <CustomHeaderButton onClick={setActiveForHome} href="/">
                   Trang chủ
                 </CustomHeaderButton>
               ) : (
-                <ActiveHeaderButton onClick={() => setIsActived(false)}>
+                <ActiveHeaderButton onClick={setActiveForHome} href="/">
                   Trang chủ
                 </ActiveHeaderButton>
               )}
@@ -43,33 +68,33 @@ export default function Header() {
 
             <Grid item xs={2}>
             {!isActived1 ? (
-                <CustomHeaderButton onClick={() => setIsActived1(true)}>
+                <CustomHeaderButton onClick={setActiveForCompare} href="/compare">
                   So sánh
                 </CustomHeaderButton>
               ) : (
-                <ActiveHeaderButton onClick={() => setIsActived1(false)}>
+                <ActiveHeaderButton onClick={setActiveForCompare} href="/compare">
                   So sánh
                 </ActiveHeaderButton>
               )}
             </Grid>
             <Grid item xs={2}>
             {!isActived2 ? (
-                <CustomHeaderButton onClick={() => setIsActived2(true)}>
+                <CustomHeaderButton onClick={setActiveForDetail} href="/detail">
                   Phân tích
                 </CustomHeaderButton>
               ) : (
-                <ActiveHeaderButton onClick={() => setIsActived2(false)}>
+                <ActiveHeaderButton onClick={setActiveForDetail} href="/detail">
                   Phân tích
                 </ActiveHeaderButton>
               )}
             </Grid>
             <Grid item xs={2}>
             {!isActived3 ? (
-                <CustomHeaderButton onClick={() => setIsActived3(true)}>
+                <CustomHeaderButton onClick={setActiveForRoutine} href="/routine">
                   Routine
                 </CustomHeaderButton>
               ) : (
-                <ActiveHeaderButton onClick={() => setIsActived3(false)}>
+                <ActiveHeaderButton onClick={setActiveForRoutine} href="/routine">
                   Routine
                 </ActiveHeaderButton>
               )}
@@ -79,12 +104,12 @@ export default function Header() {
         <Grid item xs={3}>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={5}>
-              <PinkButton variant="contained" color="primary">
+              <PinkButton href="/login" variant="contained" color="primary" style={{width: '90%'}}>
                 Đăng nhập
               </PinkButton>
             </Grid>
             <Grid item xs={4}>
-              <CustomHeaderButton>Đăng ký</CustomHeaderButton>
+              <CustomHeaderButton href="/login" style={{width: '100%'}}>Đăng ký</CustomHeaderButton>
             </Grid>
           </Grid>
         </Grid>
