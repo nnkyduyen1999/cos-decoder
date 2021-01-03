@@ -27,7 +27,8 @@ const useStyles = makeStyles({
     textAlign: "center",
   },
   usageText: {
-    color: colors.gray4,
+    color: 'white',
+    backgroundColor: colors.pink4,
     textAlign: "center",
   },
   addIcon: {
@@ -62,7 +63,7 @@ const IngredientItem = (props) => {
             {props.item.name}
           </Typography>
           <Typography
-            variant="body2"
+            // variant="h6"
             className={classes.usageText}
             component="p"
           >

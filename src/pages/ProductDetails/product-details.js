@@ -41,17 +41,27 @@ const ProductDetails = () => {
                 </Grid>
 
                 <Typography className={classes.title} style={{marginBottom: 10}}>Tổng quan sản phẩm</Typography>
-                <Grid container spacing={10}>
-                    <Grid item md={10}>
+                {/*<Grid item md={10}>*/}
+                <Grid container>
+                    <Grid item md={3}>
                         <ProductOverviewItem title="Không paraben"/>
+                    </Grid>
+                    <Grid item md={3}>
                         <ProductOverviewItem title="Không  thử nghiệm trên động vật"/>
+                    </Grid>
+                    <Grid item md={3}>
                         <ProductOverviewItem title="Không silicone"/>
+                    </Grid>
+                    <Grid item md={3}>
                         <ProductOverviewItem title="Không cồn khô"/>
+                    </Grid>
+                    <Grid item md={3}>
                         <ProductOverviewItem title="Không hương liệu"/>
+                    </Grid>
+                    <Grid item md={3}>
                         <ProductOverviewItem title="Không Sulfates"/>
                     </Grid>
                 </Grid>
-
                 <Typography className={classes.title} style={{marginBottom: 10}}>
                     Công dụng & thành phần đáng chú ý
                 </Typography>
