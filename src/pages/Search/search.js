@@ -32,6 +32,7 @@ import Header from "../../components/Headers/headerWithSearchBar";
 import Footer from "../../components/Footer/footer";
 import ProductItem from "../../components/ProductItem/product-item";
 import { usePagination } from "@material-ui/lab/Pagination";
+import {PinkStyledTextField} from "../Login/useStyles";
 
 export default function Search() {
   const [typeOpen, setTypeOpen] = useState(true);
@@ -225,7 +226,7 @@ export default function Search() {
           </Grid>
           <Grid item xs={9}>
             <form>
-              <TextField
+              <PinkStyledTextField
                 fullWidth
                 id="outlined-basic"
                 label="Search"

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Grid, TextField, Button, Divider } from "@material-ui/core";
-import { useStyles, PinkButton, PinkOutlineButton } from "./useStyles";
+import { useStyles, PinkButton, PinkOutlineButton, PinkStyledTextField} from "./useStyles";
 import GGIcon from "@material-ui/icons/MailOutline";
 import FBIcon from "@material-ui/icons/Facebook";
 import Logo from "../../images/Logo.svg";
@@ -48,19 +48,17 @@ const Login = () => {
                     </Grid>
 
                     <Grid item xs={8}>
-                      <TextField
+                      <PinkStyledTextField
                         label="Email"
                         type="text"
-                        autoComplete="current-password"
                         variant="outlined"
                         fullWidth="true"
                       />
                     </Grid>
                     <Grid item xs={8}>
-                      <TextField
+                      <PinkStyledTextField
                         label="Mật khẩu"
                         type="password"
-                        autoComplete="current-password"
                         variant="outlined"
                         fullWidth="true"
                       />
