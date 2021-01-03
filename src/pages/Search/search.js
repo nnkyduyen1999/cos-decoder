@@ -58,6 +58,7 @@ export default function Search() {
       borderRadius: "17px",
       padding: "4px",
       borderColor: colors.pink4,
+      borderWidth: 2,
     },
     boxStyle: {
       borderRadius: 5,
@@ -185,7 +186,7 @@ export default function Search() {
                       Thành phần phổ biến:
                     </i>
                     </Box>
-                    
+
                     <br />
                     <FormControlLabel
                       control={<Checkbox />}
