@@ -18,6 +18,8 @@ import {
   makeStyles,
   Select,
   TextField,
+  ListItemIcon,
+  ListItemSecondaryAction,
 } from "@material-ui/core";
 import {
   CloseOutlined,
@@ -32,7 +34,12 @@ import Header from "../../components/Headers/headerWithSearchBar";
 import Footer from "../../components/Footer/footer";
 import ProductItem from "../../components/ProductItem/product-item";
 import { usePagination } from "@material-ui/lab/Pagination";
-import {PinkStyledTextField} from "../Login/useStyles";
+import { PinkStyledTextField } from "../Login/useStyles";
+import Brightening from "../../images/diamond.png";
+import AcneFighting from "../../images/cookie.png";
+import AntiAging from "../../images/hourglass.png";
+import Healing from "../../images/band-aid(1).png";
+import UV from "../../images/shield 1.svg";
 
 export default function Search() {
   const [typeOpen, setTypeOpen] = useState(true);
@@ -50,7 +57,7 @@ export default function Search() {
       color: "white",
       marginLeft: "19px",
       marginBottom: "10px",
-      width: "80%"
+      width: "80%",
     },
     filterApplied: {
       marginRight: "7px",
@@ -100,8 +107,8 @@ export default function Search() {
       <Header />
       <br />
       <br />
-      <Container fixed style={{width: '90%'}}>
-        <Grid container direrection="row"  spacing={8}>
+      <Container fixed style={{ width: "90%" }}>
+        <Grid container direrection="row" spacing={8}>
           <Grid item xs={3}>
             <Box className={classes.boxStyle}>
               <List>
@@ -150,43 +157,51 @@ export default function Search() {
                     disablePadding
                   >
                     <Box>
-                    <i style={{ fontSize: "14px", color: colors.gray4 }}>
-                      Hiệu quả đáng chú ý trên thành phần:
-                    </i>
-                      </Box>
-                    <FormControlLabel
-                      control={<Checkbox />}
-                      label={<ListItemText secondary="Chống tia UV" />}
-                    />
-                    <br />
-                    <FormControlLabel
-                      control={<Checkbox />}
-                      label={<ListItemText secondary="Làm sáng" />}
-                    />
-                    <br />
-                    <FormControlLabel
-                      control={<Checkbox />}
-                      label={<ListItemText secondary="Trị mụn" />}
-                    />
-                    <br />
-                    <FormControlLabel
-                      control={<Checkbox />}
-                      label={
-                        <ListItemText secondary="Hỗ trợ làm lành vết thương" />
-                      }
-                    />
-                    <br />
-                    <FormControlLabel
-                      control={<Checkbox />}
-                      label={<ListItemText secondary="Chống lão hóa" />}
-                    />
-                    <br />
-                    <Box>
-                    <i style={{ fontSize: "14px", color: colors.gray4 }}>
-                      Thành phần phổ biến:
-                    </i>
+                      <i style={{ fontSize: "14px", color: colors.gray4 }}>
+                        Hiệu quả đáng chú ý trên thành phần:
+                      </i>
                     </Box>
-                    
+                    <ListItem role={undefined}>
+                      <ListItemIcon>
+                      <Checkbox edge="start" />
+                      <img src={UV} alt="uv" style={{width: 25, height: 25, paddingTop: 9, paddingBottom: 9, paddingRight: 9}}/>
+                      </ListItemIcon>
+                      <ListItemText secondary="Chống tia UV" />
+                    </ListItem>
+                    <ListItem role={undefined}>
+                      <ListItemIcon>
+                      <Checkbox edge="start" />
+                      <img src={AcneFighting} alt="acnefighting" style={{width: 25, height: 25, paddingTop: 9, paddingBottom: 9, paddingRight: 9}}/>
+                      </ListItemIcon>
+                      <ListItemText secondary="Trị mụn" />
+                    </ListItem>
+                    <ListItem role={undefined}>
+                      <ListItemIcon>
+                      <Checkbox edge="start" />
+                      <img src={Healing} alt="healing" style={{width: 25, height: 25, paddingTop: 9, paddingBottom: 9, paddingRight: 9}}/>
+                      </ListItemIcon>
+                      <ListItemText secondary="Hỗ trợ làm lành vết thương" />
+                    </ListItem>
+                    <ListItem role={undefined}>
+                      <ListItemIcon>
+                      <Checkbox edge="start" />
+                      <img src={AntiAging} alt="antiaging" style={{width: 25, height: 25, paddingTop: 9, paddingBottom: 9, paddingRight: 9}}/>
+                      </ListItemIcon>
+                      <ListItemText secondary="Chống lão hóa" />
+                    </ListItem>
+                    <ListItem role={undefined}>
+                      <ListItemIcon>
+                      <Checkbox edge="start" />
+                      <img src={Brightening} alt="britening" style={{width: 25, height: 25, paddingTop: 9, paddingBottom: 9, paddingRight: 9}}/>
+                      </ListItemIcon>
+                      <ListItemText secondary="Làm sáng" />
+                    </ListItem>
+                    <Box>
+                      <i style={{ fontSize: "14px", color: colors.gray4 }}>
+                        Thành phần phổ biến:
+                      </i>
+                    </Box>
+
                     <br />
                     <FormControlLabel
                       control={<Checkbox />}
@@ -414,7 +429,7 @@ export default function Search() {
           </Grid>
         </Grid>
       </Container>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
