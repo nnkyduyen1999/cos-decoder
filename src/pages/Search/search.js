@@ -66,6 +66,7 @@ export default function Search() {
       borderRadius: "17px",
       padding: "4px",
       borderColor: colors.pink4,
+      borderWidth: 2,
     },
     boxStyle: {
       borderRadius: 5,
