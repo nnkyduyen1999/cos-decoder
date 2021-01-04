@@ -47,20 +47,36 @@ const Login = () => {
                       </Box>
                     </Grid>
 
-                    <Grid item xs={8}>
+                    <Grid item xs={9}>
                       <PinkStyledTextField
                         label="Email"
                         type="text"
                         variant="outlined"
                         fullWidth="true"
+                        InputProps={{
+                          className: classes.textField
+                        }}
+                        InputLabelProps={{
+                          style: {
+                            top: -10,
+                          },
+                        }}
                       />
                     </Grid>
-                    <Grid item xs={8}>
+                    <Grid item xs={9}>
                       <PinkStyledTextField
                         label="Mật khẩu"
                         type="password"
                         variant="outlined"
                         fullWidth="true"
+                        InputProps={{
+                          className: classes.textField
+                        }}
+                        InputLabelProps={{
+                          style: {
+                            top: -10
+                          },
+                        }}
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -69,6 +85,10 @@ const Login = () => {
                     <Grid item xs={12}>
                       <PinkOutlineButton onClick={()=>setIsClicked(true)}>Đăng ký</PinkOutlineButton>
                     </Grid>
+                    <Grid container direction="column" alignItems="center" justifyContent="center">
+                    
+                    <Divider light="true" style={{ width: "40%", marginBottom: 15, marginTop: 15 }} />
+                      </Grid>
                     <Grid item xs={3}>
                       <Button
                         style={{ width: "100%", textTransform: "capitalize" }}

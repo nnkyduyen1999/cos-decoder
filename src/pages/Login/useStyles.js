@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 24,
     color: customThemes.DARK_GREY,
   },
+  textField: {
+    height: 35,
+    borderRadius: 8
+  }
 }));
 
 const PinkButton = withStyles((theme) => ({
@@ -38,7 +42,8 @@ const PinkButton = withStyles((theme) => ({
       backgroundColor: "#E28F8F",
     },
     textTransform: "capitalize",
-    width: "50%",
+    width: "60%",
+    borderRadius: 8
   },
 }))(Button);
 
@@ -49,8 +54,9 @@ const PinkOutlineButton = withStyles((theme) => ({
       backgroundColor: fade(customThemes.PRIMARY_PINK, 0.7),
     },
     textTransform: "capitalize",
-    width: "50%",
+    width: "60%",
     border: "1px solid",
+    borderRadius: 8,
     borderColor: customThemes.BUTTON_HOVER,
   },
 }))(Button);
