@@ -42,7 +42,7 @@ const Login = () => {
                     alignItems="center"
                   >
                     <Grid item xs={12}>
-                      <Box className={classes.text}>
+                      <Box className={classes.text} style={{marginBottom: 20}}>
                         Chào mừng bạn trở lại !
                       </Box>
                     </Grid>
