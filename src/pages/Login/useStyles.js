@@ -29,8 +29,10 @@ const useStyles = makeStyles((theme) => ({
     color: customThemes.DARK_GREY,
   },
   textField: {
-    height: 35,
-    borderRadius: 8
+    height: 40,
+    borderRadius: 8,
+    // marginLeft: 10,
+    // marginRight: 10,
   }
 }));
 
