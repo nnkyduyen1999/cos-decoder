@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme) => ({
     // },
     // marginRight: theme.spacing(2),
     // marginLeft: 0,
-    width: "100%",
+    width: "70%",
     // [theme.breakpoints.up('sm')]: {
     //   marginLeft: theme.spacing(3),
     //   width: 'auto',
@@ -33,6 +33,7 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(10),
   },
   searchBox: {
+    marginBottom: theme.spacing(10),
     // boxShadow: "0px 10px 20px rgba(41, 41, 42, 0.07)",
   },
   searchIcon: {
