@@ -7,14 +7,14 @@ import { useStyles } from "./useStyles";
 import IngredientItem from "../../components/IngredientItem/ingredient-item";
 import RoutineItem from "../../components/RoutineItem/routine-item";
 import CompareItem from "../../components/CompareItem/compare-item";
-import Header from '../../components/Headers/header'
+import Header from "../../components/Headers/header";
 import { PinDropTwoTone } from "@material-ui/icons";
 import { SimpleDialog } from "../../components/PopUp/popUp";
 import Footer from "../../components/Footer/footer";
 
 const Home = (props) => {
   const classes = useStyles();
-  const emails = ['Routine mùa hè', 'Routine mùa đông'];
+  const emails = ["Routine mùa hè", "Routine mùa đông"];
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(emails[1]);
 
@@ -98,7 +98,7 @@ const Home = (props) => {
     {
       id: "3",
       image: "/images/routines/routine3.svg",
-      name: "Routine chống lão hoá",
+      name: "Routine dưỡng ẩm",
       username: "Mã Tú Trinh",
     },
     {
@@ -141,11 +141,17 @@ const Home = (props) => {
     },
   ];
 
+  const handleSearch = (e) => {
+    if (e.keyCode === 13) {
+      props.history.push("/search");
+    }
+  };
+
   return (
     <div className={classes.root}>
       <Header />
 
-      <Box display="flex" justifyContent='center' mx={8} px={5} mb={7}>
+      <Box display="flex" justifyContent="center" mx={8} px={5} mb={7}>
         <Box
           width="50%"
           m={3}
@@ -153,9 +159,9 @@ const Home = (props) => {
           pl={5}
           // justifyContent='center'
           // alignSelf="flex-end"
-          display='flex'
-          flexDirection='column'
-          justifyContent='flex-end'
+          display="flex"
+          flexDirection="column"
+          justifyContent="flex-end"
           // className={classes.introContainer}
         >
           <Typography
@@ -175,7 +181,7 @@ const Home = (props) => {
             nhiều sản phẩm nữa.
           </Typography>
         </Box>
-        <Box width="50%" display='flex' alignItems='center' m={3} p={1} pl={5} >
+        <Box width="50%" display="flex" alignItems="center" m={3} p={1} pl={5}>
           <img src="/Free Vanity Vector 1.svg" alt="background-image" />
         </Box>
       </Box>
@@ -202,46 +208,47 @@ const Home = (props) => {
           <img src="/images/Free Vanity Vector 1.svg" alt="background-image" />
         </Grid>
       </Grid> */}
-
-      <Box display="flex" justifyContent="center" mx={8} px={5} my={7}>
+  {/* <div className={classes.searchContainer}> */}
+      <Box className={classes.searchBox} display="flex" justifyContent="center" mx={8} px={5} my={7}>
         <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon />
           </div>
           <InputBase
-            placeholder="Search…"
+            placeholder="Tìm kiếm…"
             classes={{
               root: classes.inputRoot,
               input: classes.inputInput,
             }}
             inputProps={{ "aria-label": "search" }}
-            onKeyDown={() => props.history.push('/search')}
+            onKeyDown={handleSearch}
           />
         </div>
       </Box>
+      {/* </div> */}
 
-      <Typography className={classes.sectionTitle} variant="h4" gutterBottom >
+      <Typography className={classes.sectionTitle} variant="h4" gutterBottom>
         Sản phẩm
       </Typography>
       <Box display="flex" justifyContent="center" mx={5} mt={2} mb={5} px={5}>
         <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[0]} onClick={handleClickOpen}/>
+          <ProductItem item={topProducts[0]} onClick={handleClickOpen} />
         </Box>
         <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[1]} onClick={handleClickOpen}/>
+          <ProductItem item={topProducts[1]} onClick={handleClickOpen} />
         </Box>
         <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[2]} onClick={handleClickOpen}/>
+          <ProductItem item={topProducts[2]} onClick={handleClickOpen} />
         </Box>
         <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[3]} onClick={handleClickOpen}/>
+          <ProductItem item={topProducts[3]} onClick={handleClickOpen} />
         </Box>
       </Box>
 
       <Typography className={classes.sectionTitle} variant="h4" gutterBottom>
         Thành phần
       </Typography>
-      <Box display="flex" justifyContent="center"  mx={5} mt={2} mb={5} px={5}>
+      <Box display="flex" justifyContent="center" mx={5} mt={2} mb={5} px={5}>
         <Box width="25%" m={3} p={1}>
           <IngredientItem item={topIngredients[0]} />
         </Box>
@@ -260,7 +267,7 @@ const Home = (props) => {
         So sánh sản phẩm
       </Typography>
 
-      <Box display="flex" justifyContent="center"  mx={5} mt={2} mb={5} px={5}>
+      <Box display="flex" justifyContent="center" mx={5} mt={2} mb={5} px={5}>
         <Box width="50%" m={3} p={1}>
           <CompareItem item={topCompareProducts[0]} />
         </Box>
@@ -273,7 +280,7 @@ const Home = (props) => {
         Routines
       </Typography>
 
-      <Box display="flex" justifyContent="center"  mx={5} mt={2} mb={5} px={5}>
+      <Box display="flex" justifyContent="center" mx={5} mt={2} mb={5} px={5}>
         <Box width="25%" m={3} p={1}>
           <RoutineItem item={topRoutines[0]} />
         </Box>
@@ -290,8 +297,12 @@ const Home = (props) => {
       {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Open simple dialog
       </Button> */}
-      <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />
-      <Footer/>
+      <SimpleDialog
+        selectedValue={selectedValue}
+        open={open}
+        onClose={handleClose}
+      />
+      <Footer />
     </div>
   );
 };
