@@ -164,36 +164,86 @@ export default function Search() {
                     </Box>
                     <ListItem role={undefined}>
                       <ListItemIcon>
-                      <Checkbox edge="start" />
-                      <img src={UV} alt="uv" style={{width: 25, height: 25, paddingTop: 9, paddingBottom: 9, paddingRight: 9}}/>
+                        <Checkbox edge="start" />
+                        <img
+                          src={UV}
+                          alt="uv"
+                          style={{
+                            width: 25,
+                            height: 25,
+                            paddingTop: 9,
+                            paddingBottom: 9,
+                            paddingRight: 9,
+                          }}
+                        />
                       </ListItemIcon>
                       <ListItemText secondary="Chống tia UV" />
                     </ListItem>
                     <ListItem role={undefined}>
                       <ListItemIcon>
-                      <Checkbox edge="start" />
-                      <img src={AcneFighting} alt="acnefighting" style={{width: 25, height: 25, paddingTop: 9, paddingBottom: 9, paddingRight: 9}}/>
+                        <Checkbox edge="start" />
+                        <img
+                          src={AcneFighting}
+                          alt="acnefighting"
+                          style={{
+                            width: 25,
+                            height: 25,
+                            paddingTop: 9,
+                            paddingBottom: 9,
+                            paddingRight: 9,
+                          }}
+                        />
                       </ListItemIcon>
                       <ListItemText secondary="Trị mụn" />
                     </ListItem>
                     <ListItem role={undefined}>
                       <ListItemIcon>
-                      <Checkbox edge="start" />
-                      <img src={Healing} alt="healing" style={{width: 25, height: 25, paddingTop: 9, paddingBottom: 9, paddingRight: 9}}/>
+                        <Checkbox edge="start" />
+                        <img
+                          src={Healing}
+                          alt="healing"
+                          style={{
+                            width: 25,
+                            height: 25,
+                            paddingTop: 9,
+                            paddingBottom: 9,
+                            paddingRight: 9,
+                          }}
+                        />
                       </ListItemIcon>
                       <ListItemText secondary="Hỗ trợ làm lành vết thương" />
                     </ListItem>
                     <ListItem role={undefined}>
                       <ListItemIcon>
-                      <Checkbox edge="start" />
-                      <img src={AntiAging} alt="antiaging" style={{width: 25, height: 25, paddingTop: 9, paddingBottom: 9, paddingRight: 9}}/>
+                        <Checkbox edge="start" />
+                        <img
+                          src={AntiAging}
+                          alt="antiaging"
+                          style={{
+                            width: 25,
+                            height: 25,
+                            paddingTop: 9,
+                            paddingBottom: 9,
+                            paddingRight: 9,
+                          }}
+                        />
                       </ListItemIcon>
                       <ListItemText secondary="Chống lão hóa" />
                     </ListItem>
                     <ListItem role={undefined}>
                       <ListItemIcon>
-                      <Checkbox edge="start" />
-                      <img src={Brightening} alt="britening" style={{width: 25, height: 25, paddingTop: 9, paddingBottom: 9, paddingRight: 9}}/>
+                        <Checkbox edge="start" />
+                        <img
+                          src={Brightening}
+                          alt="britening"
+                          style={{
+                            width: 25,
+                            height: 25,
+                            paddingTop: 9,
+                            paddingBottom: 9,
+                            paddingRight: 9,
+                          }}
+                        />
                       </ListItemIcon>
                       <ListItemText secondary="Làm sáng" />
                     </ListItem>
@@ -322,6 +372,7 @@ export default function Search() {
                   }}
                 />
               </Grid>
+              i
               <Grid item xs>
                 <ProductItem
                   item={{

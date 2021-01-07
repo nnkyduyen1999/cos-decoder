@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { makeStyles, withStyles, fade } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -19,13 +20,29 @@ import CloseIcon from "@material-ui/icons/Close";
 import { customThemes } from "../../styles/theme";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import { colors } from "../../global/constants";
-import { Box, Grid } from "@material-ui/core";
+import {
+  Box,
+  Checkbox,
+  Collapse,
+  FormControlLabel,
+  Grid,
+} from "@material-ui/core";
+import { ExpandLess, ExpandMore } from "@material-ui/icons";
 
-const emails = ["Routine mùa hè", "Routine mùa đông"];
 const useStyles = makeStyles({
   avatar: {
     backgroundColor: blue[100],
     color: blue[600],
+  },
+  popup: {
+    height: "400px",
+    width: "100%",
+    overflow: "Auto",
+  },
+  smallImage: {
+    width: "50px",
+    height: "50px",
+    objectFit: "contain",
   },
 });
 
@@ -44,6 +61,18 @@ const styles = (theme) => ({
     fontWeight: "bold",
     fontSize: 20,
     color: customThemes.BUTTON_HOVER,
+  },
+  "@global": {
+    "*::-webkit-scrollbar": {
+      width: "0.4em",
+    },
+    "*::-webkit-scrollbar-thumb": {
+      backgroundColor: colors.pink3,
+      outline: "none",
+    },
+    "::-webkit-scrollbar-thumb:hover": {
+      backgroundColor: colors.pink4,
+    },
   },
 });
 
@@ -92,21 +121,75 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 function SimpleDialog(props) {
+  const [changeExpand, setChangeExpand] = useState([
+    { status: false, id: "0" },
+  ]);
+  const topProducts = [
+    {
+      id: "1",
+      image: "/images/products/Organic Flowers Cleansing Water.jpg",
+      name: "Organic Flowers Cleansing Water",
+      brand: "Whamisa",
+    },
+    {
+      id: "2",
+      image:
+        "/images/products/kem-duong-trang-nang-tone-mau-da-innisfree-jeju-cherry-blossom-tone-up-cream-50ml-3.jpg",
+      name: "Jeju Cherry Blossom Tone-up Cream",
+      brand: "Innisfree",
+    },
+    {
+      id: "3",
+      image: "/images/products/tone up no sebum sun screen.jpg",
+      name: "Tone up No Sebum Sunscreen",
+      brand: "Innisfree",
+    },
+    {
+      id: "4",
+      image: "/images/products/Innisfree, Jeju Cherry Blossom Skin.webp",
+      name: "Jeju Cherry Blossom Skin",
+      brand: "Innisfree",
+    },
+  ];
+  const [emails, setEmails] = useState([
+    {
+      id: 0,
+      name: "Routine mùa hè",
+      items: ["Sản phẩm 1", "Sản phẩm 2", "Sản phẩm 3"],
+      isOpen: false,
+    },
+    {
+      id: 1,
+      name: "Routine mùa đông",
+      items: ["Sản phẩm 1", "Sản phẩm 2", "Sản phẩm 3"],
+      isOpen: true,
+    },
+  ]);
+
   const classes = useStyles();
-  const { onClose, selectedValue, open } = props;
+  const { onClose, open } = props;
 
   const handleClose = () => {
-    onClose(selectedValue);
+    onClose();
   };
 
-  const handleListItemClick = (value) => {
-    onClose(value);
+  const handleListItemClick = (id) => {
+    setChangeExpand({ status: !changeExpand.status, id: id });
   };
+
+  useEffect(() => {
+    if (changeExpand.status == true) {
+      let newEmails = emails;
+      newEmails[changeExpand.id].isOpen = !newEmails[changeExpand.id].isOpen;
+      setEmails(newEmails);
+      setChangeExpand({ status: !changeExpand.status, id: changeExpand.id });
+    }
+  }, [changeExpand]);
 
   return (
     <Dialog
       fullWidth="true"
-      maxWidth="xs"
+      maxWidth="sm"
       onClose={handleClose}
       aria-labelledby="simple-dialog-title"
       open={open}
@@ -116,41 +199,91 @@ function SimpleDialog(props) {
         Thêm vào Routine
       </DialogTitle>
       <DialogContent dividers>
-        <List>
+        <List className={classes.popup}>
           {emails.map((email) => (
-            <ListItem
-              button
-              onClick={() => handleListItemClick(email)}
-              key={email}
-            >
-              <ListItemAvatar>
-                <CheckCircleOutlineIcon
-                  style={{ color: colors.pink4, marginRight: 10 }}
-                />
-              </ListItemAvatar>
-              <Grid container direction="column">
-                <Grid item>
-                  <ListItemText primary={email} />
-                </Grid>
-                <Grid item>
-                  <Box fontStyle="italic" fontSize="small">Description</Box>
-                </Grid>
-              </Grid>
-            </ListItem>
+            <div>
+              <ListItem button key={email.name}>
+                <ListItemAvatar>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        icon={<CheckCircleOutlineIcon />}
+                        checkedIcon={
+                          <CheckCircleOutlineIcon
+                            style={{ color: colors.pink4 }}
+                          />
+                        }
+                        name="checkedH"
+                      />
+                    }
+                    label={
+                      <Grid
+                        container
+                        direction="column"
+                        style={{ marginLeft: "10px" }}
+                      >
+                        <Grid item>
+                          <ListItemText primary={email.name} />
+                        </Grid>
+                        <Grid item>
+                          <Box fontStyle="italic" fontSize="small">
+                            Description for {email.name}
+                          </Box>
+                        </Grid>
+                      </Grid>
+                    }
+                  />
+                </ListItemAvatar>
+                <div
+                  style={{ width: "100%" }}
+                  onClick={() => {
+                    handleListItemClick(email.id);
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "30px",
+                      marginLeft: "auto",
+                    }}
+                  >
+                    {email.isOpen ? <ExpandMore /> : <ExpandLess />}
+                  </div>
+                </div>
+              </ListItem>
+              <Collapse in={email.isOpen} timeout="auto" unmountOnExit>
+                <List
+                  component="div"
+                  style={{ marginLeft: "58px" }}
+                  disablePadding
+                >
+                  {topProducts.map((product) => (
+                    <ListItem>
+                      <ListItemAvatar>
+                        <img
+                          className={classes.smallImage}
+                          src={product.image}
+                        ></img>
+                      </ListItemAvatar>
+                      <Grid
+                        container
+                        direction="column"
+                        style={{ marginLeft: "10px" }}
+                      >
+                        <Grid item>
+                          <ListItemText primary={product.name} />
+                        </Grid>
+                        <Grid item>
+                          <Box color={colors.pink4} fontSize="small">
+                            {product.brand}
+                          </Box>
+                        </Grid>
+                      </Grid>
+                    </ListItem>
+                  ))}
+                </List>
+              </Collapse>
+            </div>
           ))}
-
-          <ListItem
-            autoFocus
-            button
-            onClick={() => handleListItemClick("addAccount")}
-          >
-            <ListItemAvatar>
-              <Avatar>
-                <AddIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Tạo routine mới" />
-          </ListItem>
         </List>
       </DialogContent>
 
@@ -164,11 +297,10 @@ function SimpleDialog(props) {
 SimpleDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
-  selectedValue: PropTypes.string.isRequired,
 };
 
 function SimpleDialogDemo() {
-  const [open, setOpen] = React.useState(false);
+  /*const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(emails[1]);
 
   const handleClickOpen = () => {
@@ -193,7 +325,8 @@ function SimpleDialogDemo() {
         onClose={handleClose}
       />
     </div>
-  );
+  );*/
+  return <h1>Cai nay la SimpleDialogDemo Ne</h1>;
 }
 
 export { SimpleDialog, SimpleDialogDemo };

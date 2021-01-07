@@ -9,6 +9,8 @@ import Typography from "@material-ui/core/Typography";
 import { colors } from "../../global/constants";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { IconButton, Link } from "@material-ui/core";
+import { SimpleDialog } from "../../components/PopUp/popUp";
+
 // import { Redirect } from "react-router-dom";
 // import { Link as RouterLink } from
 const useStyles = makeStyles({
@@ -49,46 +51,56 @@ const useStyles = makeStyles({
 
 const ProductItem = (props) => {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    debugger;
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Card className={classes.root}>
       <CardActionArea style={{ minHeight: "270px" }}>
-        <Link href="/product/1" style={{textDecoration: 'none'}}>
-        <CardMedia
-          component="img"
-          className={classes.media}
-          image={props.item.image}
-          title={props.item.name}
-          href="/product/1"
-        />
-        <CardContent>
-          <Typography
-            gutterBottom
-            className={classes.title}
-            variant="h6"
-            component="h2"
-          >
-            {props.item.name}
-          </Typography>
-          <Typography
-            variant="body2"
-            className={classes.brandText}
-            component="p"
-          >
-            {props.item.brand}
-          </Typography>
-        </CardContent>
-
+        <Link href="/product/1" style={{ textDecoration: "none" }}>
+          <CardMedia
+            component="img"
+            className={classes.media}
+            image={props.item.image}
+            title={props.item.name}
+            href="/product/1"
+          />
+          <CardContent>
+            <Typography
+              gutterBottom
+              className={classes.title}
+              variant="h6"
+              component="h2"
+            >
+              {props.item.name}
+            </Typography>
+            <Typography
+              variant="body2"
+              className={classes.brandText}
+              component="p"
+            >
+              {props.item.brand}
+            </Typography>
+          </CardContent>
         </Link>
-                <CardActions className={classes.addButton}>
-          <IconButton onClick={props.onClick}>
+        <CardActions className={classes.addButton}>
+          <IconButton onClick={handleClickOpen}>
             <AddCircleIcon fontSize="large" className={classes.addIcon} />
           </IconButton>
         </CardActions>
       </CardActionArea>
-      
+
       {/* <CardActions> */}
       {/* </CardActions> */}
+      <SimpleDialog open={open} onClose={handleClose} />
     </Card>
   );
 };

@@ -16,15 +16,13 @@ const Home = (props) => {
   const classes = useStyles();
   const emails = ["Routine mùa hè", "Routine mùa đông"];
   const [open, setOpen] = React.useState(false);
-  const [selectedValue, setSelectedValue] = React.useState(emails[1]);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = (value) => {
+  const handleClose = () => {
     setOpen(false);
-    setSelectedValue(value);
   };
 
   const topProducts = [
@@ -208,8 +206,15 @@ const Home = (props) => {
           <img src="/images/Free Vanity Vector 1.svg" alt="background-image" />
         </Grid>
       </Grid> */}
-  {/* <div className={classes.searchContainer}> */}
-      <Box className={classes.searchBox} display="flex" justifyContent="center" mx={8} px={5} my={7}>
+      {/* <div className={classes.searchContainer}> */}
+      <Box
+        className={classes.searchBox}
+        display="flex"
+        justifyContent="center"
+        mx={8}
+        px={5}
+        my={7}
+      >
         <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon />
@@ -297,11 +302,7 @@ const Home = (props) => {
       {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Open simple dialog
       </Button> */}
-      <SimpleDialog
-        selectedValue={selectedValue}
-        open={open}
-        onClose={handleClose}
-      />
+      <SimpleDialog open={open} onClose={handleClose} />
       <Footer />
     </div>
   );
