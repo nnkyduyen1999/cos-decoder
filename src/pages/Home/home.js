@@ -235,7 +235,7 @@ const Home = (props) => {
       </Box>
 
       <Typography className={classes.sectionTitle} variant="h4" gutterBottom>
-        Thành phần
+        Thành phần trong mỹ phẩm
       </Typography>
       <Box display="flex" justifyContent="center" mx={5} mt={2} mb={5} px={5}>
         <Box width="25%" m={3} p={1}>
