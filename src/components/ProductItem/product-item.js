@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -10,7 +10,7 @@ import { colors } from "../../global/constants";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { IconButton, Link } from "@material-ui/core";
 import { SimpleDialog } from "../../components/PopUp/popUp";
-
+import {Context} from "../../provider";
 // import { Redirect } from "react-router-dom";
 // import { Link as RouterLink } from
 const useStyles = makeStyles({
@@ -52,6 +52,7 @@ const useStyles = makeStyles({
 const ProductItem = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const context = useContext(Context);
 
   const handleClickOpen = () => {
     debugger;
@@ -62,16 +63,26 @@ const ProductItem = (props) => {
     setOpen(false);
   };
 
+  const handleClickItem = (item) => {
+    console.log("before", context.info);
+    context.setInfo({
+      name: "hahhaah",
+      image: item.image
+    });
+    console.log(item);
+    console.log("info", context.info);
+  }
+
   return (
     <Card className={classes.root}>
       <CardActionArea style={{ minHeight: "270px" }}>
-        <Link href="/product/1" style={{ textDecoration: "none" }}>
+        <Link style={{ textDecoration: "none" }} onClick={() => handleClickItem(props.item)}>
           <CardMedia
             component="img"
             className={classes.media}
             image={props.item.image}
             title={props.item.name}
-            href="/product/1"
+            //href="/product/1"
           />
           <CardContent>
             <Typography

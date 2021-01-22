@@ -1,5 +1,6 @@
 import {Box, Typography} from "@material-ui/core";
 import React from "react";
+import {useContext} from "react";
 import ProductItem from "../../components/ProductItem/product-item";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
@@ -10,14 +11,20 @@ import CompareItem from "../../components/CompareItem/compare-item";
 import Header from "../../components/Headers/header";
 import {SimpleDialog} from "../../components/PopUp/popUp";
 import Footer from "../../components/Footer/footer";
+import {Context} from "../../provider";
 
 const Home = (props) => {
   const classes = useStyles();
   const emails = ["Routine mùa hè", "Routine mùa đông"];
   const [open, setOpen] = React.useState(false);
+  const {info, setInfo} = useContext(Context);
 
-
-  const handleClickOpen = () => {
+  const handleClickOpen = (item) => {
+    console.log(item);
+    setInfo({
+      name: item.name,
+      image: item.image
+    });
     setOpen(true);
   };
 
@@ -184,29 +191,6 @@ const Home = (props) => {
         </Box>
       </Box>
 
-      {/* <Grid container>
-        <Grid item xs={6} className={classes.introContainer}>
-          <Typography
-            classeName={classes.title}
-            variant="h3"
-            gutterBottom
-          >
-            Chào mừng bạn đến với CosDecoder
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            Tham gia cộng đồng của chúng tôi để hiểu rõ về sản phẩm mà bạn đang
-            sử dụng.
-          </Typography>
-          <Typography variant="h5" gutterBottom>
-            Cùng xây dựng cộng đồng bằng kiến thức của bạn và tìm hiểu thêm
-            nhiều sản phẩm nữa.
-          </Typography>
-        </Grid>
-        <Grid item xs={6}>
-          <img src="/images/Free Vanity Vector 1.svg" alt="background-image" />
-        </Grid>
-      </Grid> */}
-      {/* <div className={classes.searchContainer}> */}
       <Box
         className={classes.searchBox}
         display="flex"
@@ -237,21 +221,21 @@ const Home = (props) => {
       </Typography>
       <Box display="flex" justifyContent="center" mx={5} mt={2} mb={5} px={5}>
         <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[0]} onClick={handleClickOpen} />
+          <ProductItem item={topProducts[0]} onClick={() => handleClickOpen(topProducts[0])} />
         </Box>
         <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[1]} onClick={handleClickOpen} />
+          <ProductItem item={topProducts[1]} onClick={() => handleClickOpen(topProducts[1])} />
         </Box>
         <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[2]} onClick={handleClickOpen} />
+          <ProductItem item={topProducts[2]} onClick={() => handleClickOpen(topProducts[2])} />
         </Box>
         <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[3]} onClick={handleClickOpen} />
+          <ProductItem item={topProducts[3]} onClick={() => handleClickOpen(topProducts[3])} />
         </Box>
       </Box>
 
       <Typography className={classes.sectionTitle} variant="h4" gutterBottom>
-        Thành phần
+        Thành phần trong mỹ phẩm
       </Typography>
       <Box display="flex" justifyContent="center" mx={5} mt={2} mb={5} px={5}>
         <Box width="25%" m={3} p={1}>

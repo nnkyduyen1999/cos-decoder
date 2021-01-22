@@ -4,10 +4,12 @@ import Search from "./pages/Search/search";
 import ProductDetails from "./pages/ProductDetails/product-details";
 import Login from "./pages/Login/login";
 import {AuthenticationProvider} from "./provider/authProvider";
+import { Provider } from "./provider";
 
 function App() {
   return (
-    <div>
+    <Provider>
+      <div>
       <AuthenticationProvider>
       <Router>
         <Switch>
@@ -19,6 +21,7 @@ function App() {
       </Router>
       </AuthenticationProvider>
     </div>
+    </Provider>
   );
 }
 

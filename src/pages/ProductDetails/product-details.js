@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Container } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles } from "@material-ui/core/styles";
@@ -16,10 +16,13 @@ import EffectTable from "../../components/EffectTable/effect-table";
 import IngredientTable from "../../components/IngredientTable/ingredient-table";
 import ProductOverviewItem from "../../components/ProductOverviewItem/product-overview-item";
 import ProductItem from "../../components/ProductItem/product-item";
+import {Context} from "../../provider";
 
-const ProductDetails = () => {
+const ProductDetails = (props) => {
   const classes = useStyles();
-
+  const {info} = useContext(Context);
+  console.log(info);
+  
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -38,12 +41,12 @@ const ProductDetails = () => {
               component="img"
               alt="product-image"
               height="300"
-              image="https://cf.shopee.co.th/file/4a160d13471d5b5af7ccc00beaf63f78"
+              image={info.image}
               title="product-image"
             />
           </Grid>
           <Grid item md={8}>
-            <ProductDescription />
+            <ProductDescription/>
           </Grid>
         </Grid>
 
@@ -84,8 +87,12 @@ const ProductDetails = () => {
         <Typography className={classes.title} style={{ marginBottom: 10 }}>
           Nguồn thông tin
         </Typography>
-        <ResourceItem content="https://www.innisfree.vn/product/detail?prdno=37&optno=38&schdplctgno=12" />
-        <ResourceItem content='Grether-Beck, Susanne, et al. "Urea uptake enhances barrier function and antimicrobial defense in humans by regulating epidermal gene expression." Journal of Investigative Dermatology 132.6 (2012): 1561-1572.' />
+        <div>
+          <ResourceItem content="https://www.innisfree.vn/product/detail?prdno=37&optno=38&schdplctgno=12" />
+        </div>
+        <div>
+          <ResourceItem content="https://ec.europa.eu/growth/sectors/cosmetics/cosing_en" />
+        </div>
         <Link
           href="#"
           color="inherit"
