@@ -1,14 +1,14 @@
-import {Box, Typography} from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import React from "react";
 import ProductItem from "../../components/ProductItem/product-item";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
-import {useStyles} from "./useStyles";
+import { useStyles } from "./useStyles";
 import IngredientItem from "../../components/IngredientItem/ingredient-item";
 import RoutineItem from "../../components/RoutineItem/routine-item";
 import CompareItem from "../../components/CompareItem/compare-item";
 import Header from "../../components/Headers/header";
-import {SimpleDialog} from "../../components/PopUp/popUp";
+import { SimpleDialog } from "../../components/PopUp/popUp";
 import Footer from "../../components/Footer/footer";
 
 const Home = (props) => {
@@ -152,45 +152,45 @@ const Home = (props) => {
     <div className={classes.root}>
       <Header />
 
-      <Box display="flex" justifyContent="center" mx={8} px={5} mb={7}>
+      <Box display='flex' justifyContent='center' mx={8} px={5} mb={7}>
         <Box
-          width="50%"
+          width='50%'
           m={3}
           pb={5}
           pl={5}
           // justifyContent='center'
           // alignSelf="flex-end"
-          display="flex"
-          flexDirection="column"
-          justifyContent="flex-end"
+          display='flex'
+          flexDirection='column'
+          justifyContent='flex-end'
           // className={classes.introContainer}
         >
           <Typography
             // classeName={classes.title}
-            variant="h4"
+            variant='h4'
             // component="h2"
             gutterBottom
           >
             Chào mừng bạn đến với CosDecoder
           </Typography>
-          <Typography variant="h5" gutterBottom>
+          <Typography variant='h5' gutterBottom>
             Tham gia cộng đồng của chúng tôi để hiểu rõ về sản phẩm mà bạn đang
             sử dụng.
           </Typography>
-          <Typography variant="h5" gutterBottom>
+          <Typography variant='h5' gutterBottom>
             Cùng xây dựng cộng đồng bằng kiến thức của bạn và tìm hiểu thêm
             nhiều sản phẩm nữa.
           </Typography>
         </Box>
-        <Box width="50%" display="flex" alignItems="center" m={3} p={1} pl={5}>
-          <img src="/Free Vanity Vector 1.svg" alt="background-image" />
+        <Box width='50%' display='flex' alignItems='center' m={3} p={1} pl={5}>
+          <img src='/Free Vanity Vector 1.svg' alt='background-image' />
         </Box>
       </Box>
 
       <Box
         className={classes.searchBox}
-        display="flex"
-        justifyContent="center"
+        display='flex'
+        justifyContent='center'
         mx={8}
         px={5}
         my={7}
@@ -199,83 +199,101 @@ const Home = (props) => {
           <div className={classes.searchIcon}>
             <SearchIcon />
           </div>
-          <InputBase
-            placeholder="Tìm kiếm…"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
+          <form
+            onSubmit={() => {
+              props.history.push("/search");
             }}
-            inputProps={{ "aria-label": "search" }}
-            onKeyDown={handleSearch}
-          />
+          >
+            <InputBase
+              placeholder='Tìm kiếm…'
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ "aria-label": "search" }}
+              required
+            />
+          </form>
         </div>
       </Box>
       {/* </div> */}
 
-      <Typography className={classes.sectionTitle} variant="h4" gutterBottom>
+      <Typography className={classes.sectionTitle} variant='h4' gutterBottom>
         Sản phẩm
       </Typography>
-      <Box display="flex" justifyContent="center" mx={5} mt={2} mb={5} px={5}>
-        <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[0]} onClick={() => handleClickOpen(topProducts[0])} />
+      <Box display='flex' justifyContent='center' mx={5} mt={2} mb={5} px={5}>
+        <Box width='25%' m={3} p={1}>
+          <ProductItem
+            item={topProducts[0]}
+            onClick={() => handleClickOpen(topProducts[0])}
+          />
         </Box>
-        <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[1]} onClick={() => handleClickOpen(topProducts[1])} />
+        <Box width='25%' m={3} p={1}>
+          <ProductItem
+            item={topProducts[1]}
+            onClick={() => handleClickOpen(topProducts[1])}
+          />
         </Box>
-        <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[2]} onClick={() => handleClickOpen(topProducts[2])} />
+        <Box width='25%' m={3} p={1}>
+          <ProductItem
+            item={topProducts[2]}
+            onClick={() => handleClickOpen(topProducts[2])}
+          />
         </Box>
-        <Box width="25%" m={3} p={1}>
-          <ProductItem item={topProducts[3]} onClick={() => handleClickOpen(topProducts[3])} />
+        <Box width='25%' m={3} p={1}>
+          <ProductItem
+            item={topProducts[3]}
+            onClick={() => handleClickOpen(topProducts[3])}
+          />
         </Box>
       </Box>
 
-      <Typography className={classes.sectionTitle} variant="h4" gutterBottom>
+      <Typography className={classes.sectionTitle} variant='h4' gutterBottom>
         Thành phần trong mỹ phẩm
       </Typography>
-      <Box display="flex" justifyContent="center" mx={5} mt={2} mb={5} px={5}>
-        <Box width="25%" m={3} p={1}>
+      <Box display='flex' justifyContent='center' mx={5} mt={2} mb={5} px={5}>
+        <Box width='25%' m={3} p={1}>
           <IngredientItem item={topIngredients[0]} />
         </Box>
-        <Box width="25%" m={3} p={1}>
+        <Box width='25%' m={3} p={1}>
           <IngredientItem item={topIngredients[1]} />
         </Box>
-        <Box width="25%" m={3} p={1}>
+        <Box width='25%' m={3} p={1}>
           <IngredientItem item={topIngredients[2]} />
         </Box>
-        <Box width="25%" m={3} p={1}>
+        <Box width='25%' m={3} p={1}>
           <IngredientItem item={topIngredients[3]} />
         </Box>
       </Box>
 
-      <Typography className={classes.sectionTitle} variant="h4" gutterBottom>
+      <Typography className={classes.sectionTitle} variant='h4' gutterBottom>
         So sánh sản phẩm
       </Typography>
 
-      <Box display="flex" justifyContent="center" mx={5} mt={2} mb={5} px={5}>
-        <Box width="50%" m={3} p={1}>
+      <Box display='flex' justifyContent='center' mx={5} mt={2} mb={5} px={5}>
+        <Box width='50%' m={3} p={1}>
           <CompareItem item={topCompareProducts[0]} />
         </Box>
-        <Box width="50%" m={3} p={1}>
+        <Box width='50%' m={3} p={1}>
           <CompareItem item={topCompareProducts[1]} />
         </Box>
       </Box>
 
-      <Typography className={classes.sectionTitle} variant="h4" gutterBottom>
+      <Typography className={classes.sectionTitle} variant='h4' gutterBottom>
         Routines
       </Typography>
 
-      <Box display="flex" justifyContent="center" mx={5} mt={2} mb={5} px={5}>
-        <Box width="25%" m={3} p={1}>
+      <Box display='flex' justifyContent='center' mx={5} mt={2} mb={5} px={5}>
+        <Box width='25%' m={3} p={1}>
           <RoutineItem item={topRoutines[0]} />
         </Box>
-        <Box width="25%" m={3} p={1}>
+        <Box width='25%' m={3} p={1}>
           <RoutineItem item={topRoutines[1]} />
         </Box>
-        <Box width="25%" m={3} p={1}>
+        <Box width='25%' m={3} p={1}>
           <RoutineItem item={topRoutines[2]} />
         </Box>
-        <Box width="25%" m={3} p={1}>
+        <Box width='25%' m={3} p={1}>
           <RoutineItem item={topRoutines[3]} />
         </Box>
       </Box>

@@ -15,22 +15,27 @@ import {
   makeStyles,
   Select,
 } from "@material-ui/core";
-import {CloseOutlined, ExpandLess, ExpandMore, SearchOutlined,} from "@material-ui/icons/";
-import {useState} from "react";
+import {
+  CloseOutlined,
+  ExpandLess,
+  ExpandMore,
+  SearchOutlined,
+} from "@material-ui/icons/";
+import { useState } from "react";
 import "../../global/constants";
-import {colors} from "../../global/constants";
+import { colors } from "../../global/constants";
 import Header from "../../components/Headers/header";
 import Footer from "../../components/Footer/footer";
 import ProductItem from "../../components/ProductItem/product-item";
-import {usePagination} from "@material-ui/lab/Pagination";
-import {PinkStyledTextField} from "../Login/useStyles";
+import { usePagination } from "@material-ui/lab/Pagination";
+import { PinkStyledTextField } from "../Login/useStyles";
 import Brightening from "../../images/diamond.png";
 import AcneFighting from "../../images/cookie.png";
 import AntiAging from "../../images/hourglass.png";
 import Healing from "../../images/band-aid(1).png";
 import UV from "../../images/shield 1.svg";
 
-export default function Search() {
+export default function Search(props) {
   const [typeOpen, setTypeOpen] = useState(true);
   const [filterOpen, setFilterOpen] = useState(true);
   const [sortOpen, setSortOpen] = useState(false);
@@ -98,7 +103,7 @@ export default function Search() {
       <br />
       <br />
       <Container fixed style={{ width: "90%" }}>
-        <Grid container direrection="row" spacing={8}>
+        <Grid container direrection='row' spacing={8}>
           <Grid item xs={3}>
             <Box className={classes.boxStyle}>
               <List>
@@ -111,19 +116,19 @@ export default function Search() {
                   <span className={classes.optionTitle}>PHÂN LOẠI</span>
                   {typeOpen ? <ExpandMore /> : <ExpandLess />}
                 </ListItem>
-                <Collapse in={typeOpen} timeout="auto" unmountOnExit>
+                <Collapse in={typeOpen} timeout='auto' unmountOnExit>
                   <List
-                    component="div"
+                    component='div'
                     style={{ marginLeft: "30px" }}
                     disablePadding
                   >
-                    <ListItemText secondary="Chăm sóc da mặt"></ListItemText>
-                    <ListItemText secondary="Cạo râu nam"></ListItemText>
-                    <ListItemText secondary="Chăm sóc cơ thể"></ListItemText>
-                    <ListItemText secondary="Chăm sóc tóc"></ListItemText>
-                    <ListItemText secondary="Make up"></ListItemText>
-                    <ListItemText secondary="Nước hoa"></ListItemText>
-                    <ListItemText secondary="Chăm sóc móng"></ListItemText>
+                    <ListItemText secondary='Chăm sóc da mặt'></ListItemText>
+                    <ListItemText secondary='Cạo râu nam'></ListItemText>
+                    <ListItemText secondary='Chăm sóc cơ thể'></ListItemText>
+                    <ListItemText secondary='Chăm sóc tóc'></ListItemText>
+                    <ListItemText secondary='Make up'></ListItemText>
+                    <ListItemText secondary='Nước hoa'></ListItemText>
+                    <ListItemText secondary='Chăm sóc móng'></ListItemText>
                   </List>
                 </Collapse>
               </List>
@@ -140,9 +145,9 @@ export default function Search() {
                   <span className={classes.optionTitle}>THÀNH PHẦN</span>
                   {filterOpen ? <ExpandMore /> : <ExpandLess />}
                 </ListItem>
-                <Collapse in={filterOpen} timeout="auto" unmountOnExit>
+                <Collapse in={filterOpen} timeout='auto' unmountOnExit>
                   <List
-                    component="div"
+                    component='div'
                     style={{ marginLeft: "20px" }}
                     disablePadding
                   >
@@ -153,10 +158,10 @@ export default function Search() {
                     </Box>
                     <ListItem role={undefined}>
                       <ListItemIcon>
-                        <Checkbox edge="start" />
+                        <Checkbox edge='start' />
                         <img
                           src={UV}
-                          alt="uv"
+                          alt='uv'
                           style={{
                             width: 25,
                             height: 25,
@@ -166,14 +171,14 @@ export default function Search() {
                           }}
                         />
                       </ListItemIcon>
-                      <ListItemText secondary="Chống tia UV" />
+                      <ListItemText secondary='Chống tia UV' />
                     </ListItem>
                     <ListItem role={undefined}>
                       <ListItemIcon>
-                        <Checkbox edge="start" />
+                        <Checkbox edge='start' />
                         <img
                           src={AcneFighting}
-                          alt="acnefighting"
+                          alt='acnefighting'
                           style={{
                             width: 25,
                             height: 25,
@@ -183,14 +188,14 @@ export default function Search() {
                           }}
                         />
                       </ListItemIcon>
-                      <ListItemText secondary="Trị mụn" />
+                      <ListItemText secondary='Trị mụn' />
                     </ListItem>
                     <ListItem role={undefined}>
                       <ListItemIcon>
-                        <Checkbox edge="start" />
+                        <Checkbox edge='start' />
                         <img
                           src={Healing}
-                          alt="healing"
+                          alt='healing'
                           style={{
                             width: 25,
                             height: 25,
@@ -200,14 +205,14 @@ export default function Search() {
                           }}
                         />
                       </ListItemIcon>
-                      <ListItemText secondary="Hỗ trợ làm lành vết thương" />
+                      <ListItemText secondary='Hỗ trợ làm lành vết thương' />
                     </ListItem>
                     <ListItem role={undefined}>
                       <ListItemIcon>
-                        <Checkbox edge="start" />
+                        <Checkbox edge='start' />
                         <img
                           src={AntiAging}
-                          alt="antiaging"
+                          alt='antiaging'
                           style={{
                             width: 25,
                             height: 25,
@@ -217,14 +222,14 @@ export default function Search() {
                           }}
                         />
                       </ListItemIcon>
-                      <ListItemText secondary="Chống lão hóa" />
+                      <ListItemText secondary='Chống lão hóa' />
                     </ListItem>
                     <ListItem role={undefined}>
                       <ListItemIcon>
-                        <Checkbox edge="start" />
+                        <Checkbox edge='start' />
                         <img
                           src={Brightening}
-                          alt="britening"
+                          alt='britening'
                           style={{
                             width: 25,
                             height: 25,
@@ -234,7 +239,7 @@ export default function Search() {
                           }}
                         />
                       </ListItemIcon>
-                      <ListItemText secondary="Làm sáng" />
+                      <ListItemText secondary='Làm sáng' />
                     </ListItem>
                     <Box>
                       <i style={{ fontSize: "14px", color: colors.gray4 }}>
@@ -245,32 +250,32 @@ export default function Search() {
                     <br />
                     <FormControlLabel
                       control={<Checkbox />}
-                      label={<ListItemText secondary="AHA" />}
+                      label={<ListItemText secondary='AHA' />}
                     />
                     <br />
                     <FormControlLabel
                       control={<Checkbox />}
-                      label={<ListItemText secondary="BHA" />}
+                      label={<ListItemText secondary='BHA' />}
                     />
                     <br />
                     <FormControlLabel
                       control={<Checkbox />}
-                      label={<ListItemText secondary="PHA" />}
+                      label={<ListItemText secondary='PHA' />}
                     />
                     <br />
                     <FormControlLabel
                       control={<Checkbox />}
-                      label={<ListItemText secondary="Azelic Acid" />}
+                      label={<ListItemText secondary='Azelic Acid' />}
                     />
                     <br />
                     <FormControlLabel
                       control={<Checkbox />}
-                      label={<ListItemText secondary="Ceramide" />}
+                      label={<ListItemText secondary='Ceramide' />}
                     />
                     <br />
                     <FormControlLabel
                       control={<Checkbox />}
-                      label={<ListItemText secondary="Vitamin A" />}
+                      label={<ListItemText secondary='Vitamin A' />}
                     />
                     <br />
                     <Button className={classes.applyButton}>ÁP DỤNG</Button>
@@ -280,15 +285,21 @@ export default function Search() {
             </Box>
           </Grid>
           <Grid item xs={9}>
-            <form>
+            <form
+              onSubmit={() => {
+                props.history.push("/search");
+              }}
+            >
               <PinkStyledTextField
+                required
                 fullWidth
-                id="outlined-basic"
-                label="Search"
-                variant="outlined"
+                id='outlined-basic'
+                label='Search'
+                type='text'
+                variant='outlined'
                 InputProps={{
                   startAdornment: (
-                    <InputAdornment position="start">
+                    <InputAdornment position='start'>
                       <SearchOutlined />
                     </InputAdornment>
                   ),
@@ -323,8 +334,8 @@ export default function Search() {
             </div>
             <br />
             <FormControl
-              variant="outlined"
-              size="small"
+              variant='outlined'
+              size='small'
               style={{ minWidth: "250px", marginTop: "17px" }}
             >
               <Select
@@ -441,7 +452,7 @@ export default function Search() {
                     children = (
                       <button
                         className={classes.pagingButton}
-                        type="button"
+                        type='button'
                         style={{
                           fontWeight: selected ? "bold" : "normal",
                           backgroundColor: selected ? colors.pink3 : "white",
@@ -455,7 +466,7 @@ export default function Search() {
                     children = (
                       <button
                         className={classes.pagingButton}
-                        type="button"
+                        type='button'
                         {...item}
                       >
                         {type}
