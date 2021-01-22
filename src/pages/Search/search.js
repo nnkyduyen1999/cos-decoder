@@ -22,6 +22,7 @@ import {
   SearchOutlined,
 } from "@material-ui/icons/";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "../../global/constants";
 import { colors } from "../../global/constants";
 import Header from "../../components/Headers/header";
@@ -40,6 +41,7 @@ export default function Search(props) {
   const [filterOpen, setFilterOpen] = useState(true);
   const [sortOpen, setSortOpen] = useState(false);
   const [filter, setFilter] = useState("Phổ biến");
+  const history = useHistory();
 
   const { items } = usePagination({
     count: 3,
@@ -287,7 +289,8 @@ export default function Search(props) {
           <Grid item xs={9}>
             <form
               onSubmit={() => {
-                props.history.push("/search");
+                debugger;
+                history.push("/search");
               }}
             >
               <PinkStyledTextField
@@ -372,7 +375,6 @@ export default function Search(props) {
                   }}
                 />
               </Grid>
-              i
               <Grid item xs>
                 <ProductItem
                   item={{

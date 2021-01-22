@@ -200,11 +200,18 @@ const Home = (props) => {
             <SearchIcon />
           </div>
           <form
+            name={"searchForm"}
             onSubmit={() => {
+              debugger;
+              let keyWords = document.forms["searchForm"]["input"].value;
+              if (keyWords.replace(/\s+/g, "").length == 0) {
+                return false;
+              }
               props.history.push("/search");
             }}
           >
             <InputBase
+              name={"input"}
               placeholder='Tìm kiếm…'
               classes={{
                 root: classes.inputRoot,
