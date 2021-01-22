@@ -1,21 +1,21 @@
-import { Grid, fade, Typography, colors, Box, Button } from "@material-ui/core";
+import {Box, Typography} from "@material-ui/core";
 import React from "react";
 import ProductItem from "../../components/ProductItem/product-item";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
-import { useStyles } from "./useStyles";
+import {useStyles} from "./useStyles";
 import IngredientItem from "../../components/IngredientItem/ingredient-item";
 import RoutineItem from "../../components/RoutineItem/routine-item";
 import CompareItem from "../../components/CompareItem/compare-item";
 import Header from "../../components/Headers/header";
-import { PinDropTwoTone } from "@material-ui/icons";
-import { SimpleDialog } from "../../components/PopUp/popUp";
+import {SimpleDialog} from "../../components/PopUp/popUp";
 import Footer from "../../components/Footer/footer";
 
 const Home = (props) => {
   const classes = useStyles();
   const emails = ["Routine mùa hè", "Routine mùa đông"];
   const [open, setOpen] = React.useState(false);
+
 
   const handleClickOpen = () => {
     setOpen(true);

@@ -10,7 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import ResourceItem from "../../components/ResourceItem/resource-item";
 import Link from "@material-ui/core/Link";
 import { colors, relatedProduct } from "../../global/constants";
-import Header from "../../components/Headers/headerWithSearchBar";
+import Header from "../../components/Headers/header";
 import Footer from "../../components/Footer/footer";
 import EffectTable from "../../components/EffectTable/effect-table";
 import IngredientTable from "../../components/IngredientTable/ingredient-table";

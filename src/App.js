@@ -3,10 +3,12 @@ import Home from "./pages/Home/home";
 import Search from "./pages/Search/search";
 import ProductDetails from "./pages/ProductDetails/product-details";
 import Login from "./pages/Login/login";
+import {AuthenticationProvider} from "./provider/authProvider";
 
 function App() {
   return (
     <div>
+      <AuthenticationProvider>
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
@@ -15,6 +17,7 @@ function App() {
           <Route path="/product/1" exact component={ProductDetails} />
         </Switch>
       </Router>
+      </AuthenticationProvider>
     </div>
   );
 }

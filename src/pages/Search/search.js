@@ -1,40 +1,29 @@
 import {
   Box,
   Button,
-  Card,
-  CardContent,
   Checkbox,
   Collapse,
   Container,
-  Fab,
   FormControl,
   FormControlLabel,
   Grid,
   InputAdornment,
-  InputLabel,
   List,
   ListItem,
+  ListItemIcon,
   ListItemText,
   makeStyles,
   Select,
-  TextField,
-  ListItemIcon,
-  ListItemSecondaryAction,
 } from "@material-ui/core";
-import {
-  CloseOutlined,
-  ExpandLess,
-  ExpandMore,
-  SearchOutlined,
-} from "@material-ui/icons/";
-import { useState } from "react";
+import {CloseOutlined, ExpandLess, ExpandMore, SearchOutlined,} from "@material-ui/icons/";
+import {useState} from "react";
 import "../../global/constants";
-import { colors } from "../../global/constants";
-import Header from "../../components/Headers/headerWithSearchBar";
+import {colors} from "../../global/constants";
+import Header from "../../components/Headers/header";
 import Footer from "../../components/Footer/footer";
 import ProductItem from "../../components/ProductItem/product-item";
-import { usePagination } from "@material-ui/lab/Pagination";
-import { PinkStyledTextField } from "../Login/useStyles";
+import {usePagination} from "@material-ui/lab/Pagination";
+import {PinkStyledTextField} from "../Login/useStyles";
 import Brightening from "../../images/diamond.png";
 import AcneFighting from "../../images/cookie.png";
 import AntiAging from "../../images/hourglass.png";
