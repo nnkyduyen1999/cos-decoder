@@ -3,10 +3,11 @@ import Home from "./pages/Home/home";
 import Search from "./pages/Search/search";
 import ProductDetails from "./pages/ProductDetails/product-details";
 import Login from "./pages/Login/login";
+import { Provider } from "./provider";
 
 function App() {
   return (
-    <div>
+    <Provider>
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
@@ -15,7 +16,7 @@ function App() {
           <Route path="/product/1" exact component={ProductDetails} />
         </Switch>
       </Router>
-    </div>
+    </Provider>
   );
 }
 
