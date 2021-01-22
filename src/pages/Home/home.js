@@ -1,6 +1,5 @@
 import {Box, Typography} from "@material-ui/core";
 import React from "react";
-import {useContext} from "react";
 import ProductItem from "../../components/ProductItem/product-item";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
@@ -11,20 +10,17 @@ import CompareItem from "../../components/CompareItem/compare-item";
 import Header from "../../components/Headers/header";
 import {SimpleDialog} from "../../components/PopUp/popUp";
 import Footer from "../../components/Footer/footer";
-import {Context} from "../../provider";
 
 const Home = (props) => {
   const classes = useStyles();
-  const emails = ["Routine mùa hè", "Routine mùa đông"];
   const [open, setOpen] = React.useState(false);
-  const {info, setInfo} = useContext(Context);
 
   const handleClickOpen = (item) => {
-    console.log(item);
-    setInfo({
-      name: item.name,
-      image: item.image
-    });
+    // console.log(item);
+    // setInfo({
+    //   name: item.name,
+    //   image: item.image
+    // });
     setOpen(true);
   };
 

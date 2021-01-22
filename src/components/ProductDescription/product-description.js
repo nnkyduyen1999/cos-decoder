@@ -5,7 +5,7 @@ import { colors } from "../../global/constants";
 import Rating from "@material-ui/lab/Rating";
 import { PinkButton } from "../Headers/useStyle";
 import { SimpleDialog } from "../../components/PopUp/popUp";
-import {Context} from "../../provider";
+import {Context} from "../../provider/provider";
 
 const ProductDescription = (props) => {
   const classes = useStyles();

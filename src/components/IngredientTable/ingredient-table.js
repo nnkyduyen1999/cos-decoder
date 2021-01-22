@@ -10,7 +10,6 @@ import Paper from '@material-ui/core/Paper';
 import {colors, ingredientExplain} from "../../global/constants";
 import {Typography} from "@material-ui/core";
 import StopIcon from '@material-ui/icons/Stop';
-import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 
 const useStyles = makeStyles({
     container: {

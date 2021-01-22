@@ -2,14 +2,12 @@ import React, { useState } from "react";
 
 const Context = React.createContext();
 
-
-
-const Provider = (props) => {
+const Provider = ({children}) => {
   const [info, setInfo] = useState(null);
 
   return (
     <Context.Provider value={{ info, setInfo }}>
-      {props.children}
+      {children}
     </Context.Provider>
   );
 };

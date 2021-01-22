@@ -1,23 +1,19 @@
 import React, {useContext} from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import { colors } from "../../global/constants";
+import {colors} from "../../global/constants";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
-import { IconButton, Link } from "@material-ui/core";
-import { SimpleDialog } from "../../components/PopUp/popUp";
-import {Context} from "../../provider";
-// import { Redirect } from "react-router-dom";
-// import { Link as RouterLink } from
+import {IconButton, Link} from "@material-ui/core";
+import {SimpleDialog} from "../../components/PopUp/popUp";
+import {Context} from "../../provider/provider";
+
 const useStyles = makeStyles({
   root: {
-    // width: "20%",
-    // minWidth: "250px",
-    // minHeight: "270px",
     borderRadius: 5,
     boxShadow: "0px 10px 20px rgba(41, 41, 42, 0.07)",
   },
@@ -52,7 +48,7 @@ const useStyles = makeStyles({
 const ProductItem = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const context = useContext(Context);
+  const {setInfo} = useContext(Context);
 
   const handleClickOpen = () => {
     debugger;
@@ -64,13 +60,10 @@ const ProductItem = (props) => {
   };
 
   const handleClickItem = (item) => {
-    console.log("before", context.info);
-    context.setInfo({
-      name: "hahhaah",
-      image: item.image
-    });
-    console.log(item);
-    console.log("info", context.info);
+    // console.log("before", info);
+    setInfo(item);
+    // console.log(item);
+    // console.log("info", info);
   }
 
   return (
@@ -108,9 +101,6 @@ const ProductItem = (props) => {
           </IconButton>
         </CardActions>
       </CardActionArea>
-
-      {/* <CardActions> */}
-      {/* </CardActions> */}
       <SimpleDialog open={open} onClose={handleClose} />
     </Card>
   );

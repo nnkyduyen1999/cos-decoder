@@ -16,13 +16,13 @@ import EffectTable from "../../components/EffectTable/effect-table";
 import IngredientTable from "../../components/IngredientTable/ingredient-table";
 import ProductOverviewItem from "../../components/ProductOverviewItem/product-overview-item";
 import ProductItem from "../../components/ProductItem/product-item";
-import {Context} from "../../provider";
+import {Context} from "../../provider/provider";
 
 const ProductDetails = (props) => {
   const classes = useStyles();
   const {info} = useContext(Context);
   console.log(info);
-  
+
   return (
     <div className={classes.root}>
       <CssBaseline />
