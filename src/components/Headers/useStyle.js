@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     backgroundColor: customThemes.PRIMARY_PINK,
   },
+  link: {
+    margin: theme.spacing(1, 2, 1, 2),
+    fontWeight: "bold",
+  },
 }));
 
 const PinkButton = withStyles((theme) => ({
@@ -62,5 +66,5 @@ const ActiveHeaderButton = withStyles((theme) => ({
       fontWeight: customThemes.FONT_BOLD
     },
   }))(Button);
-  
+
 export { useStyles, PinkButton, CustomHeaderButton, ActiveHeaderButton };

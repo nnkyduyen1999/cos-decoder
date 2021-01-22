@@ -1,4 +1,4 @@
-import {Grid, Link} from "@material-ui/core";
+import {Avatar, Grid, IconButton, Link, Typography} from "@material-ui/core";
 import React, {useContext, useState} from "react";
 import {
     useStyles,
@@ -8,6 +8,7 @@ import {
 } from "./useStyle";
 import Logo from "../../images/Logo.svg";
 import {AuthenticationContext} from "../../provider/authProvider";
+import Button from "@material-ui/core/Button";
 
 export default function Header(props) {
     const [isActived, setIsActived] = useState(false);
@@ -106,6 +107,22 @@ export default function Header(props) {
                 <Grid item xs={3}>
                     {isAuth ?
                         <Grid container direction="row" justify="center" alignItems="center">
+                            <Grid item xs={6}>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Button
+                                    color="inherit"
+                                    className={classes.link}
+                                    startIcon={
+                                        <Avatar src="https://images-na.ssl-images-amazon.com/images/I/71FcdrSeKlL._AC_SL1001_.jpg" />
+                                    }
+                                    aria-label="account of current user"
+                                    aria-controls="menu-appbar"
+                                    aria-haspopup="true"
+                                >
+                                    Tu  Hao
+                                </Button>
+                            </Grid>
 
                         </Grid>
                         :
@@ -125,3 +142,6 @@ export default function Header(props) {
         </div>
     );
 }
+
+
+
