@@ -41,7 +41,7 @@ const ProductDetails = (props) => {
               component="img"
               alt="product-image"
               height="300"
-              image={info.image}
+              image={info?.image}
               title="product-image"
             />
           </Grid>

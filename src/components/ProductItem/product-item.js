@@ -11,6 +11,7 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 import {IconButton, Link} from "@material-ui/core";
 import {SimpleDialog} from "../../components/PopUp/popUp";
 import {Context} from "../../provider/provider";
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -49,6 +50,7 @@ const ProductItem = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const {setInfo} = useContext(Context);
+  const history = useHistory();
 
   const handleClickOpen = () => {
     debugger;
@@ -62,19 +64,20 @@ const ProductItem = (props) => {
   const handleClickItem = (item) => {
     // console.log("before", info);
     setInfo(item);
+    history.push("/product/1");
     // console.log(item);
     // console.log("info", info);
   }
 
   return (
     <Card className={classes.root}>
-      <CardActionArea style={{ minHeight: "270px" }}>
-        <Link style={{ textDecoration: "none" }} onClick={() => handleClickItem(props.item)}>
+      <CardActionArea style={{ minHeight: "270px" }} onClick={() => handleClickItem(props.item)}>
           <CardMedia
             component="img"
             className={classes.media}
             image={props.item.image}
             title={props.item.name}
+
             //href="/product/1"
           />
           <CardContent>
@@ -94,7 +97,6 @@ const ProductItem = (props) => {
               {props.item.brand}
             </Typography>
           </CardContent>
-        </Link>
         <CardActions className={classes.addButton}>
           <IconButton onClick={handleClickOpen}>
             <AddCircleIcon fontSize="large" className={classes.addIcon} />

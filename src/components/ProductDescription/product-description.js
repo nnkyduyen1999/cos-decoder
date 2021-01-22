@@ -43,7 +43,7 @@ const ProductDescription = (props) => {
         Làm sáng, dưỡng trắng
       </Typography>
       <Typography className={classes.title} variant="h4">
-        {info.name}
+        {info?.name}
       </Typography>
       <Typography className={classes.origin} color="textPrimary">
         {`Innisfree `}
