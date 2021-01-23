@@ -90,6 +90,9 @@ export default function Search(props) {
       backgroundColor: "white",
       color: colors.pink4,
     },
+    property: {
+      marginLeft: "5px",
+    },
   });
 
   const classes = UseStyles();
@@ -244,38 +247,50 @@ export default function Search(props) {
                       <ListItemText secondary='Làm sáng' />
                     </ListItem>
                     <Box>
-                      <i style={{ fontSize: "14px", color: colors.gray4 }}>
+                      <i
+                        style={{
+                          fontSize: "14px",
+                          color: colors.gray4,
+                          marginBottom: "0px",
+                        }}
+                      >
                         Thành phần phổ biến:
                       </i>
                     </Box>
 
                     <br />
                     <FormControlLabel
+                      className={classes.property}
                       control={<Checkbox />}
                       label={<ListItemText secondary='AHA' />}
                     />
                     <br />
                     <FormControlLabel
+                      className={classes.property}
                       control={<Checkbox />}
                       label={<ListItemText secondary='BHA' />}
                     />
                     <br />
                     <FormControlLabel
+                      className={classes.property}
                       control={<Checkbox />}
                       label={<ListItemText secondary='PHA' />}
                     />
                     <br />
                     <FormControlLabel
+                      className={classes.property}
                       control={<Checkbox />}
                       label={<ListItemText secondary='Azelic Acid' />}
                     />
                     <br />
                     <FormControlLabel
+                      className={classes.property}
                       control={<Checkbox />}
                       label={<ListItemText secondary='Ceramide' />}
                     />
                     <br />
                     <FormControlLabel
+                      className={classes.property}
                       control={<Checkbox />}
                       label={<ListItemText secondary='Vitamin A' />}
                     />
